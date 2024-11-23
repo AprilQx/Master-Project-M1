@@ -19,8 +19,7 @@ config = load_config(str(PROJECT_ROOT / 'config.toml'))
 
 class MNISTAdditionDataset(Dataset):
     """MNIST Addition Dataset with statistical guarantees"""
-    def __init__(
-        self,
+    def __init__(self,
         root: str,
         train: bool = True,
         transform: Optional[transforms.Compose] = None,
@@ -28,33 +27,33 @@ class MNISTAdditionDataset(Dataset):
         seed: int = 43,
         balanced: bool = True,
     ):
-     """Here, initialize the dataset"""
-    self.root = root
-    self.train = train
-    self.transform = transform
-    self.download = download
-    self.seed = seed
-    self.balanced = balanced
+        """Here, initialize the dataset"""
+        self.root = root
+        self.train = train
+        self.transform = transform
+        self.download = download
+        self.seed = seed
+        self.balanced = balanced
 
-    # Set seeds for reproducibility
-    torch.manual_seed(seed)
-    np.random.seed(seed)
-        
-    #load datasets
-    self.minist = datasets.MNIST(
-        root=str(self.root),
-        train=train,
-        download=download,
-        transform=transforms.ToTensor(),
-    )
-    #create digit to indices mapping
-    self.digit_to_indices=self._create_digit_indices()
+        # Set seeds for reproducibility
+        torch.manual_seed(seed)
+        np.random.seed(seed)
+            
+        #load datasets
+        self.minist = datasets.MNIST(
+            root=str(self.root),
+            train=train,
+            download=download,
+            transform=transforms.ToTensor(),
+        )
+        #create digit to indices mapping
+        self.digit_to_indices=self._create_digit_indices()
 
-    #Generating datasets
-    self.pairs,self.targets=self._generate_balanced_pairs()
+        #Generating datasets
+        self.pairs,self.targets=self._generate_balanced_pairs()
 
-    # Verify statistical properties
-    self._verify_statistics()
+        # Verify statistical properties
+        self._verify_statistics()
 
     def _create_digit_indices(self) -> Dict[int, np.ndarray]:
         """Creata a mapping from digit to their indices"""
