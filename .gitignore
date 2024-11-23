@@ -2,3 +2,8 @@
 **/*.pyc
 **/*.pyo
 **/*.pyd
+**/.DS_Store
+mnist_addition/data/MNIST/raw/*-ubyte
+**/__pycache__/
+*.py[cod]
+mnist_addition/mnist_addition/data/MNIST/raw/

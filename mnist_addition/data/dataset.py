@@ -1,14 +1,16 @@
 # This is used for dataset creation and processing
 import torch
 import logging
+import torchvision
 from torch.utils.data import Dataset, DataLoader, random_split
-from torchvision import datasets, transforms
+from torchvision import transforms
 import numpy as np
 from typing import Tuple, Optional, Dict
 from collections import Counter
 import matplotlib.pyplot as plt
 import os
 from pathlib import Path
+from torchvision.datasets import MNIST
 
 # Get the project root directory
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -20,7 +22,7 @@ config = load_config(str(PROJECT_ROOT / 'config.toml'))
 class MNISTAdditionDataset(Dataset):
     """MNIST Addition Dataset with statistical guarantees"""
     def __init__(self,
-        root: str,
+        root: str = "mnist_addition/data",
         train: bool = True,
         transform: Optional[transforms.Compose] = None,
         download: bool = True,
@@ -28,24 +30,20 @@ class MNISTAdditionDataset(Dataset):
         balanced: bool = True,
     ):
         """Here, initialize the dataset"""
-        self.root = root
+
         self.train = train
         self.transform = transform
-        self.download = download
-        self.seed = seed
-        self.balanced = balanced
+        self.balanced=balanced
+        self.root=Path(root)
+        self.data_dir = self.root / 'processed'
+        self.data_dir.mkdir(parents=True, exist_ok=True)
+
 
         # Set seeds for reproducibility
         torch.manual_seed(seed)
         np.random.seed(seed)
             
-        #load datasets
-        self.minist = datasets.MNIST(
-            root=str(self.root),
-            train=train,
-            download=download,
-            transform=transforms.ToTensor(),
-        )
+        
         #create digit to indices mapping
         self.digit_to_indices=self._create_digit_indices()
 
@@ -54,6 +52,14 @@ class MNISTAdditionDataset(Dataset):
 
         # Verify statistical properties
         self._verify_statistics()
+
+        # Load MNIST directly
+        self.mnist = MNIST(
+            root=root,
+            train=train,
+            download=download,
+            transform=transforms.ToTensor(),
+        )
 
     def _create_digit_indices(self) -> Dict[int, np.ndarray]:
         """Creata a mapping from digit to their indices"""
@@ -66,6 +72,7 @@ class MNISTAdditionDataset(Dataset):
         """Generate balanced pairs"""
         pairs = []
         targets = []
+        
         if self.balanced:
             target_sums=list(range(19)) # here, we created target sums from 0 to 18
             pairs_per_sum=1000 if self.train else 200
@@ -91,6 +98,7 @@ class MNISTAdditionDataset(Dataset):
                 idx2=np.random.choice(self.digit_to_indices[d2])
                 pairs.append([idx1, idx2])
                 targets.append(d1 + d2)
+                
 
         return np.array(pairs), np.array(targets)
     

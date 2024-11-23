@@ -73,6 +73,11 @@ Desktop.ini
 # Distribution
 *.tar.gz
 *.whl
+.gz
 
 # Jupyter Notebook
 .ipynb_checkpoints.DS_Store
+
+
+# MNIST dataset directory
+mnist_addition/mnist_addition/data/MNIST/raw/
