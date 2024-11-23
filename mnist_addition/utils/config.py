@@ -11,5 +11,10 @@ def load_config(config_path: str = "config.toml") -> Dict[str, Any]:
     Returns:
         Configuration dictionary
     """
-    with open(config_path, "rb") as f:
-        return tomli.load(f)
+    try:
+        with open(config_path, "rb") as f:
+            return tomli.load(f)
+    except FileNotFoundError:
+        print(f"Config file not found at: {config_path}")
+        print(f"Current working directory: {Path.cwd()}")
+        raise

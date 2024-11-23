@@ -7,10 +7,15 @@ import numpy as np
 from typing import Tuple, Optional, Dict
 from collections import Counter
 import matplotlib.pyplot as plt
-from utils.config import load_config
+import os
+from pathlib import Path
 
-# Load config
-config = load_config()
+# Get the project root directory
+PROJECT_ROOT = Path(__file__).parent.parent
+
+# Import config with correct path
+from utils.config import load_config
+config = load_config(str(PROJECT_ROOT / 'config.toml'))
 
 class MNISTAdditionDataset(Dataset):
     """MNIST Addition Dataset with statistical guarantees"""

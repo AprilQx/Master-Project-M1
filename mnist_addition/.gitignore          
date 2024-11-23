@@ -1,5 +1,15 @@
-# Python
+# Python cache files
+**/__pycache__/
+*/__pycache__/
 __pycache__/
+*.py[cod]
+
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.cpython-39.pyc
+*.pyc
 *.py[cod]
 *$py.class
 *.so
@@ -19,35 +29,50 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+*.log
+*.pyc
 
-# Jupyter Notebook
-.ipynb_checkpoints
 
 # Virtual Environment
 venv/
 env/
 ENV/
+.env
+.venv
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+.project
+.pydevproject
+.settings/
 
-# Model weights and data
-*.pth
-*.pt
-*.pkl
-*.h5
+# Testing
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+coverage.xml
+*.cover
+.hypothesis/
 
-# Logs
-logs/
-*.log
+# Documentation
 
-# Dataset
-data/*.gz
-data/*.csv
-data/*.npy
-
-# Mac
+# MacOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Distribution
+*.tar.gz
+*.whl
+
+# Jupyter Notebook
+.ipynb_checkpoints.DS_Store
