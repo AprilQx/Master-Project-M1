@@ -1,0 +1,19 @@
+# Dataset Configuration
+
+[data]
+batch_size = 32
+train_split = 0.7
+val_split = 0.15
+random_seed = 42
+num_workers = 4
+
+# Model Architecture
+[model]
+hidden_size = 128
+dropout = 0.2
+
+# Training Parameters
+[train]
+epochs = 100
+learning_rate = 0.001
+device = "mps"  
