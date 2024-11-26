@@ -96,7 +96,6 @@ class ModelTrainer:
             self.counter = 0
         return False
 
-        
 
     def _save_model_info(self):
         """
