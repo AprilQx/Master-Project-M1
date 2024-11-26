@@ -98,25 +98,31 @@ class ModelTrainer:
         """Log metrics for the current epoch"""
         epoch_dir = self.save_dir / f'epoch_{epoch}'
         epoch_dir.mkdir(parents=True, exist_ok=True)
+         # Convert any tensor values to Python numbers
+        def convert_tensors(metrics_dict):
+            return {
+                k: v.item() if torch.is_tensor(v) else v 
+                for k, v in metrics_dict.items()
+            }
+    
         
         metrics = {
             'epoch': epoch,
-            'train': train_metrics,
-            'validation': val_metrics
+            'train': convert_tensors(train_metrics),
+            'validation': convert_tensors(val_metrics)
         }
         
         # Save metrics to JSON file
         with open(epoch_dir / 'metrics.json', 'w') as f:
             json.dump(metrics, f, indent=4)
         
-        # Log to console
         print(f"\nEpoch {epoch + 1}")
         print("Training Metrics:")
         for name, value in train_metrics.items():
-            print(f"  {name}: {value:.4f}")
+            print(f"  {name}: {value.item() if torch.is_tensor(value) else value:.4f}")
         print("Validation Metrics:")
         for name, value in val_metrics.items():
-            print(f"  {name}: {value:.4f}")
+            print(f"  {name}: {value.item() if torch.is_tensor(value) else value:.4f}")
     
     def train(self) -> Tuple[nn.Module, Dict[str, list]]:
         """
