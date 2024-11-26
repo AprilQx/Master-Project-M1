@@ -73,13 +73,16 @@ class ModelTrainer:
         }
         # Save regular checkpoint
         checkpoint_path = self.save_dir / f'epoch_{epoch}'
+        checkpoint_path.mkdir(parents=True, exist_ok=True)
+
         torch.save(checkpoint, checkpoint_path / 'full_checkpoint.pt')  # Complete checkpoint
         torch.save(self.model, checkpoint_path / 'model.pt')  # Just the model
 
         # Save best model if applicable
         if is_best:
             best_path = self.save_dir / 'best_model'
-            best_path.mkdir(exist_ok=True)
+            best_path.mkdir(parents=True, exist_ok=True)
+
             torch.save(checkpoint, best_path / 'full_checkpoint.pt')
             torch.save(self.model, best_path / 'model.pt')
             
@@ -91,6 +94,29 @@ class ModelTrainer:
             }
             with open(best_path / 'best_summary.json', 'w') as f:
                 json.dump(best_summary, f, indent=4)
+    def _log_metrics(self, epoch: int, train_metrics: Dict[str, float], val_metrics: Dict[str, float]):
+        """Log metrics for the current epoch"""
+        epoch_dir = self.save_dir / f'epoch_{epoch}'
+        epoch_dir.mkdir(parents=True, exist_ok=True)
+        
+        metrics = {
+            'epoch': epoch,
+            'train': train_metrics,
+            'validation': val_metrics
+        }
+        
+        # Save metrics to JSON file
+        with open(epoch_dir / 'metrics.json', 'w') as f:
+            json.dump(metrics, f, indent=4)
+        
+        # Log to console
+        print(f"\nEpoch {epoch + 1}")
+        print("Training Metrics:")
+        for name, value in train_metrics.items():
+            print(f"  {name}: {value:.4f}")
+        print("Validation Metrics:")
+        for name, value in val_metrics.items():
+            print(f"  {name}: {value:.4f}")
     
     def train(self) -> Tuple[nn.Module, Dict[str, list]]:
         """
