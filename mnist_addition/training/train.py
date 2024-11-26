@@ -7,17 +7,27 @@ import json
 import logging
 from typing import Dict, Tuple, Any
 from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt
 
 class ModelTrainer:
     """
     Handles training and evaluation of MNIST Addition model
     """
-    def __init__(self, model: nn.Module, dataloaders: Dict[str, DataLoader], config: Dict[str, Any]):
+    def __init__(self, model: nn.Module, dataloaders: Dict[str, DataLoader], config: Dict[str, Any], patience: int = 5,
+                 min_delta: float = 0.001):
         self.model=model
         self.dataloaders=dataloaders
         self.config=config
         self.device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
+        print(f"Using device: {self.device}")
         self.model=self.model.to(self.device)
+
+        # Early stopping parameters
+        self.patience = patience
+        self.min_delta = min_delta
+        self.counter = 0
+        self.best_loss = None
+        self.early_stop = False
 
         # Setup training components
         self.criterion = nn.CrossEntropyLoss()
@@ -44,6 +54,48 @@ class ModelTrainer:
 
         # Save initial model architecture and configuration
         self._save_model_info()
+
+    def _plot_metrics(self):
+        """Plot training and validation metrics"""
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+        
+        # Plot losses
+        ax1.plot(self.metrics_history['train_loss'], label='Training Loss')
+        ax1.plot(self.metrics_history['val_loss'], label='Validation Loss')
+        ax1.set_xlabel('Epoch')
+        ax1.set_ylabel('Loss')
+        ax1.set_title('Training and Validation Loss')
+        ax1.legend()
+        ax1.grid(True)
+        
+        # Plot accuracies
+        ax2.plot(self.metrics_history['train_accuracy'], label='Training Accuracy')
+        ax2.plot(self.metrics_history['val_accuracy'], label='Validation Accuracy')
+        ax2.set_xlabel('Epoch')
+        ax2.set_ylabel('Accuracy')
+        ax2.set_title('Training and Validation Accuracy')
+        ax2.legend()
+        ax2.grid(True)
+        
+        # Save the plot
+        plt.tight_layout()
+        plt.savefig(self.save_dir / 'training_metrics.png')
+        plt.close()
+    
+    def _check_early_stopping(self, val_loss: float) -> bool:
+        """Check if training should be stopped early"""
+        if self.best_loss is None:
+            self.best_loss = val_loss
+        elif val_loss > self.best_loss - self.min_delta:
+            self.counter += 1
+            print(f'Early stopping counter: {self.counter} out of {self.patience}')
+            if self.counter >= self.patience:
+                return True
+        else:
+            self.best_loss = val_loss
+            self.counter = 0
+        return False
+
         
 
     def _save_model_info(self):
@@ -159,13 +211,23 @@ class ModelTrainer:
             # Log metrics
             self._log_metrics(epoch, train_metrics, val_metrics)
 
-            # Check if this is the best model
-            is_best = metrics['val_loss'] < self.best_val_loss
-            if is_best:
-                self.best_val_loss = metrics['val_loss']
+            # Plot current progress
+            self._plot_metrics()
             
-            # Save checkpoints
-            self._save_checkpoint(epoch, metrics, is_best)
+            # Check early stopping
+            if self._check_early_stopping(val_metrics['loss']):
+                print(f'Early stopping triggered at epoch {epoch + 1}')
+                break
+            
+
+            # Save best model
+            if val_metrics['loss'] < self.best_val_loss:
+                self.best_val_loss = val_metrics['loss']
+                self._save_checkpoint(epoch, 
+                                   {**train_metrics, **val_metrics}, 
+                                   is_best=True)
+            
+            
         
         # Save final metrics history
         with open(self.save_dir / 'final_metrics_history.json', 'w') as f:

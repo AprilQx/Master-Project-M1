@@ -29,6 +29,8 @@ def main():
                     model=model,
                     dataloaders=dataloaders,
                     config=config
+                    patience=5,  # number of epochs to wait before stopping
+                    min_delta=0.001 #minimum change in monitored value to qualify as improvement
                 )
         trained_model, metrics_history = trainer.train()
         # Evaluate on test set
