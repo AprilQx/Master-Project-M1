@@ -3,7 +3,21 @@
 **/*.pyo
 **/*.pyd
 **/.DS_Store
-mnist_addition/data/MNIST/raw/*-ubyte
-**/__pycache__/
-*.py[cod]
-mnist_addition/mnist_addition/data/MNIST/raw/
+
+# Ignore MNIST data directories
+data/MNIST/
+data/processed/
+mnist_addition/mnist_addition/data/MNIST/
+mnist_addition/mnist_addition/data/processed/
+
+# Ignore all .gz files (MNIST compressed files)
+*.gz
+
+# Ignore specific MNIST file formats
+*-ubyte
+
+# If you want to be more specific about the MNIST files:
+**/t10k-images-idx3-ubyte
+**/t10k-labels-idx1-ubyte
+**/train-images-idx3-ubyte
+**/train-labels-idx1-ubyte

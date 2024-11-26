@@ -212,7 +212,7 @@ class ModelTrainer:
             self._log_metrics(epoch, train_metrics, val_metrics)
 
             # Plot current progress
-            self._plot_metrics()
+            #self._plot_metrics()
             
             # Check early stopping
             if self._check_early_stopping(val_metrics['loss']):
@@ -231,7 +231,7 @@ class ModelTrainer:
         
         # Save final metrics history
         with open(self.save_dir / 'final_metrics_history.json', 'w') as f:
-            json.dump(self.metrics_history, f, indent=4)
+            json.dump(self._convert_tensors(self.metrics_history), f, indent=4)
         
         return self.model, self.metrics_history
     
