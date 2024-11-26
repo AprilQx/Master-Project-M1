@@ -47,6 +47,14 @@ class MNISTAdditionDataset(Dataset):
         # Set seeds for reproducibility
         torch.manual_seed(seed)
         np.random.seed(seed)
+
+        # Load MNIST directly
+        self.mnist = MNIST(
+            root=root,
+            train=train,
+            download=True,
+            transform=transforms.ToTensor(),
+        )
             
         #create digit to indices mapping
         self.digit_to_indices=self._create_digit_indices()
@@ -57,13 +65,6 @@ class MNISTAdditionDataset(Dataset):
         # Verify statistical properties
         self._verify_statistics()
 
-        # Load MNIST directly
-        self.mnist = MNIST(
-            root=root,
-            train=train,
-            download=True,
-            transform=transforms.ToTensor(),
-        )
 
     def _create_digit_indices(self) -> Dict[int, np.ndarray]:
         """Creata a mapping from digit to their indices"""
@@ -135,8 +136,8 @@ class MNISTAdditionDataset(Dataset):
     
     def __getitem__(self, idx: int) -> Tuple[torch.Tensor, int]:
         idx1, idx2 =self.pairs[idx]
-        img1, _ =self.minist[idx1]
-        img2, _ =self.minist[idx2]
+        img1, _ =self.mnist[idx1]
+        img2, _ =self.mnist[idx2]
         img=torch.cat([img1, img2], dim=2)#56*28
         target=self.targets[idx]
         if self.transform:
@@ -150,70 +151,86 @@ def get_dataloaders(
         root: str="data",
 ) -> Dict[str, DataLoader]:
     """Create dataloaders with proper splits"""
+
+    # Verify config has required keys
+    required_keys = ['data', 'random_seed', 'batch_size', 'num_workers']
+    if 'data' not in config:
+        raise KeyError("Config must contain 'data' section")
+    for key in ['random_seed', 'batch_size', 'num_workers']:
+        if key not in config['data']:
+            raise KeyError(f"Config['data'] must contain '{key}'")
+        
     # Create transforms
     transform = transforms.Compose([
         transforms.Normalize((0.1307,), (0.3081,))  # MNIST normalization
     ])
-    # Create train dataset
-    train_dataset=MNISTAdditionDataset(
-        root=root,
-        train=True,
-        transform=transform,
-        download=True,
-        seed=config['data']['random_seed'],
-        balanced=True
-    )
-    #create test dataset
-    test_dataset=MNISTAdditionDataset(
-        root=root,
-        train=False,
-        transform=transform,
-        download=True,
-        seed=config['data']['random_seed'],
-        balanced=True
-    )
-    total_desired_size = int(3800 / 0.15)  # using previuos methods of balanced sampling, we have 3800 samples
-    train_val_size = total_desired_size - 3800  # we need to add more samples to reach the desired ratio of 0.7/0.15/0.15
-    # Create validation and train splits
-    train_size = int(total_desired_size * 0.70)
-    val_size = total_desired_size - train_size - 3800 
-
-    generator = torch.Generator().manual_seed(config['dataset']['random_seed'])
-
-    train_data, val_data = random_split(
-        train_dataset, 
-        [train_size, val_size],
-        generator=generator
-    )
-
-    #verify the split ratios
-    total_data = train_size + val_size + 3800
-    print(f"\nDataset Split Ratios:")
-    print(f"Train: {train_size} ({train_size/total_data*100:.1f}%)")
-    print(f"Validation: {val_size} ({val_size/total_data*100:.1f}%)")
-    print(f"Test: 3800 ({3800/total_data*100:.1f}%)")
-
-
-    # Create dataloaders
-    dataloaders = {
-        'train': DataLoader(
-            train_data,
-            batch_size=config['data']['batch_size'],
-            shuffle=True,
-            num_workers=config['data']['num_workers']
-        ),
-        'val': DataLoader(
-            val_data,
-            batch_size=config['data']['batch_size'],
-            shuffle=False,
-            num_workers=config['data']['num_workers']
-        ),
-        'test': DataLoader(
-            test_dataset,
-            batch_size=config['data']['batch_size'],
-            shuffle=False,
-            num_workers=config['data']['num_workers']
+    try:
+        print("Creating training dataset...")
+        # Create train dataset
+        train_dataset=MNISTAdditionDataset(
+            root=root,
+            train=True,
+            transform=transform,
+            download=True,
+            seed=config['data']['random_seed'],
+            balanced=True
         )
-    }
-    return dataloaders
+        #create test dataset
+        print("Creating test dataset...")
+        test_dataset=MNISTAdditionDataset(
+            root=root,
+            train=False,
+            transform=transform,
+            download=True,
+            seed=config['data']['random_seed'],
+            balanced=True
+        )
+        total_desired_size = int(3800 / 0.15)  # using previuos methods of balanced sampling, we have 3800 samples
+        train_val_size = total_desired_size - 3800  # we need to add more samples to reach the desired ratio of 0.7/0.15/0.15
+        # Create validation and train splits
+        train_size = int(total_desired_size * 0.70)
+        val_size = total_desired_size - train_size - 3800 
+
+        generator = torch.Generator().manual_seed(config['dataset']['random_seed'])
+
+        train_data, val_data = random_split(
+            train_dataset, 
+            [train_size, val_size],
+            generator=generator
+        )
+
+        #verify the split ratios
+        total_data = train_size + val_size + 3800
+        print(f"\nDataset Split Ratios:")
+        print(f"Train: {train_size} ({train_size/total_data*100:.1f}%)")
+        print(f"Validation: {val_size} ({val_size/total_data*100:.1f}%)")
+        print(f"Test: 3800 ({3800/total_data*100:.1f}%)")
+
+
+        # Create dataloaders
+        dataloaders = {
+            'train': DataLoader(
+                train_data,
+                batch_size=config['data']['batch_size'],
+                shuffle=True,
+                num_workers=config['data']['num_workers']
+            ),
+            'val': DataLoader(
+                val_data,
+                batch_size=config['data']['batch_size'],
+                shuffle=False,
+                num_workers=config['data']['num_workers']
+            ),
+            'test': DataLoader(
+                test_dataset,
+                batch_size=config['data']['batch_size'],
+                shuffle=False,
+                num_workers=config['data']['num_workers']
+            )
+        }
+        return dataloaders
+    
+    except Exception as e:
+        print(f"Error creating dataloaders: {str(e)}")
+        raise
     
