@@ -31,7 +31,7 @@ class MNISTAdditionDataset(Dataset):
         train: bool = True,
         transform: Optional[transforms.Compose] = None,
         download: bool = True,
-        seed: int = 43,
+        seed: int = 42,
         balanced: bool = True,
     ):
         """Here, initialize the dataset"""

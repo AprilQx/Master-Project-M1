@@ -9,13 +9,13 @@ num_workers = 4
 
 # Model Architecture
 [model]
-hidden_sizes = [128, 256, 64, 192, 160]
-num_layers = [2, 3, 2, 4, 3]
-dropout_rates = [0.2, 0.3, 0.1, 0.25, 0.15]
-learning_rates = [0.001, 0.0005, 0.002, 0.001, 0.0015]
-batch_sizes = [32, 64, 32, 48, 40]
+hidden_size = 128
+num_layers = 2
+dropout_rate = 0.2
+learning_rate = 0.001
 
 # Training Parameters
 [train]
 epochs = 50
 device = "mps"  
+save_dir = "checkpoints"
