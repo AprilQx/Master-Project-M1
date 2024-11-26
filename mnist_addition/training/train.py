@@ -61,22 +61,24 @@ class ModelTrainer:
 
     def _save_checkpoint(self, epoch: int, metrics:Dict[str, float],is_best: bool = False):
         """Save model architecture and hyperparameter information"""
+        serializable_metrics = self._convert_tensors(metrics)
+        serializable_history = self._convert_tensors(self.metrics_history)
+    
         checkpoint = {
             'epoch': epoch,
-            'model': self.model,  # Save complete model
             'model_state_dict': self.model.state_dict(),
             'optimizer': self.optimizer,  # Save complete optimizer
             'optimizer_state_dict': self.optimizer.state_dict(),
             'config': self.config,
-            'metrics': metrics,
-            'metrics_history': self.metrics_history
+            'metrics': serializable_metrics,
+            'metrics_history': serializable_history
         }
         # Save regular checkpoint
-        checkpoint_path = self.save_dir / f'epoch_{epoch}'
-        checkpoint_path.mkdir(parents=True, exist_ok=True)
+        #checkpoint_path = self.save_dir / f'epoch_{epoch}'
+       #checkpoint_path.mkdir(parents=True, exist_ok=True)
 
-        torch.save(checkpoint, checkpoint_path / 'full_checkpoint.pt')  # Complete checkpoint
-        torch.save(self.model, checkpoint_path / 'model.pt')  # Just the model
+        #torch.save(checkpoint, checkpoint_path / 'full_checkpoint.pt')  # Complete checkpoint
+        #torch.save(self.model, checkpoint_path / 'model.pt')  # Just the model
 
         # Save best model if applicable
         if is_best:
@@ -84,32 +86,37 @@ class ModelTrainer:
             best_path.mkdir(parents=True, exist_ok=True)
 
             torch.save(checkpoint, best_path / 'full_checkpoint.pt')
-            torch.save(self.model, best_path / 'model.pt')
+            torch.save(self.model.state_dict(), best_path / 'model.pt')
             
             # Save a summary of best performance
             best_summary = {
                 'epoch': epoch,
-                'metrics': metrics,
+                'metrics': serializable_metrics,
                 'config': self.config
             }
             with open(best_path / 'best_summary.json', 'w') as f:
                 json.dump(best_summary, f, indent=4)
+    def _convert_tensors(self, obj):
+        """Recursively convert tensors in nested structures to Python numbers"""
+        if torch.is_tensor(obj):
+            return obj.item()
+        elif isinstance(obj, dict):
+            return {key: self._convert_tensors(value) for key, value in obj.items()}
+        elif isinstance(obj, list):
+            return [self._convert_tensors(item) for item in obj]
+        return obj
+    
     def _log_metrics(self, epoch: int, train_metrics: Dict[str, float], val_metrics: Dict[str, float]):
         """Log metrics for the current epoch"""
         epoch_dir = self.save_dir / f'epoch_{epoch}'
         epoch_dir.mkdir(parents=True, exist_ok=True)
          # Convert any tensor values to Python numbers
-        def convert_tensors(metrics_dict):
-            return {
-                k: v.item() if torch.is_tensor(v) else v 
-                for k, v in metrics_dict.items()
-            }
-    
-        
+        train_metrics = self._convert_tensors(train_metrics)
+        val_metrics = self._convert_tensors(val_metrics)
         metrics = {
             'epoch': epoch,
-            'train': convert_tensors(train_metrics),
-            'validation': convert_tensors(val_metrics)
+            'train': train_metrics,
+            'validation': val_metrics
         }
         
         # Save metrics to JSON file
