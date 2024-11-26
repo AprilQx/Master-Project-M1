@@ -293,7 +293,7 @@ class ModelTrainer:
             'accuracy': running_accuracy / num_batches,
             'recall': running_recall / num_batches
         }
-    def evalute(self,dataloader:DataLoader)->Dict[str,float]:
+    def evaluate(self,dataloader:DataLoader)->Dict[str,float]:
         """
         Evaluate the model on the test dataset
         """

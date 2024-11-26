@@ -1,14 +1,15 @@
-**/__pycache__/
-**/*.pyc
-**/*.pyo
-**/*.pyd
-**/.DS_Store
-
 # Ignore MNIST data directories
 data/MNIST/
 data/processed/
 mnist_addition/mnist_addition/data/MNIST/
 mnist_addition/mnist_addition/data/processed/
+
+# Ignore model checkpoints and related files
+*.pt
+experiments/**/full_checkpoint.pt
+experiments/**/model.pt
+experiments/*/epoch_*/
+experiments/*/best_model/
 
 # Ignore all .gz files (MNIST compressed files)
 *.gz
@@ -16,8 +17,19 @@ mnist_addition/mnist_addition/data/processed/
 # Ignore specific MNIST file formats
 *-ubyte
 
+# Ignore Python cache files
+**/__pycache__/
+*.py[cod]
+
 # If you want to be more specific about the MNIST files:
 **/t10k-images-idx3-ubyte
 **/t10k-labels-idx1-ubyte
 **/train-images-idx3-ubyte
 **/train-labels-idx1-ubyte
+
+# Optionally keep metric files while ignoring checkpoints
+# If you want to keep metrics.json and model_info.json:
+!experiments/**/metrics.json
+!experiments/**/model_info.json
+!experiments/**/final_metrics_history.json
+!experiments/**/best_summary.json
