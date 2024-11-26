@@ -43,7 +43,6 @@ class MNISTAdditionDataset(Dataset):
         torch.manual_seed(seed)
         np.random.seed(seed)
             
-        
         #create digit to indices mapping
         self.digit_to_indices=self._create_digit_indices()
 
@@ -57,14 +56,14 @@ class MNISTAdditionDataset(Dataset):
         self.mnist = MNIST(
             root=root,
             train=train,
-            download=download,
+            download=True,
             transform=transforms.ToTensor(),
         )
 
     def _create_digit_indices(self) -> Dict[int, np.ndarray]:
         """Creata a mapping from digit to their indices"""
         digit_to_indices={i: [] for i in range(10)}
-        for idx, (_, target) in enumerate(self.minist):
+        for idx, (_, target) in enumerate(self.mnist):
             digit_to_indices[target].append(idx)
         return {k:np.array(v) for k,v in digit_to_indices.items()}
     

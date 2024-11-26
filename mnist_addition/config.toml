@@ -17,5 +17,5 @@ batch_sizes = [32, 64, 32, 48, 40]
 
 # Training Parameters
 [train]
-epochs = 10
+epochs = 50
 device = "mps"  
