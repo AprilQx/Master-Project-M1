@@ -11,9 +11,14 @@ import matplotlib.pyplot as plt
 import os
 from pathlib import Path
 from torchvision.datasets import MNIST
+import sys
 
 # Get the project root directory
 PROJECT_ROOT = Path(__file__).parent.parent
+
+# Add the project root to Python path
+sys.path.append(str(PROJECT_ROOT))
+#print(f"Added {str(PROJECT_ROOT)} to path.")
 
 # Import config with correct path
 from utils.config import load_config
