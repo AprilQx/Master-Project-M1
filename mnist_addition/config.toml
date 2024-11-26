@@ -18,4 +18,4 @@ learning_rate = 0.001
 [train]
 epochs = 50
 device = "mps"  
-save_dir = "checkpoints"
+save_dir = "experiments"
