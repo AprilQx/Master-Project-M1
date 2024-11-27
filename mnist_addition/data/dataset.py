@@ -185,7 +185,7 @@ def get_dataloaders(
             transform=transform,
             download=True,
             seed=config['data']['random_seed'],
-            balanced=False
+            balanced=True
         )
         print("Training dataset created successfully")
         
@@ -197,7 +197,7 @@ def get_dataloaders(
             transform=transform,
             download=True,
             seed=config['data']['random_seed'],
-            balanced=False
+            balanced=True
         )
         print("Test dataset created successfully")
         
