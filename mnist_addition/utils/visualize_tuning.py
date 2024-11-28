@@ -5,6 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from pathlib import Path
 from typing import Dict, List,Optional
+import sys,os
 
 
 class TuningVisualizer:
@@ -113,8 +114,11 @@ class TuningVisualizer:
             print(f"- {param}: [{self.df[param].min()}, {self.df[param].max()}]")
 
 def main():
-    results_path = "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/all_results.json"
-    save_dir = Path("/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/visualizations")
+    PROJECT_ROOT = Path(__file__).resolve().parent
+    sys.path.append(str(PROJECT_ROOT.parent))
+    print(f"Current working directory: {os.getcwd()}")
+    results_path = "experiments/tuning_20241127_201445/all_results.json"
+    save_dir = Path("experiments/tuning_20241127_201445/visualizations")
     
     # Create save directory if it doesn't exist
     save_dir.mkdir(exist_ok=True)
