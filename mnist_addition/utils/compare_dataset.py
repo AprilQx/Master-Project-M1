@@ -33,8 +33,7 @@ def load_model(model_path):
     """Load the saved model with proper architecture"""
     # Load model info to get architecture parameters
     model_info = load_model_info(model_path)
-    
-    # Create model instance with same architecture
+
     model = MNISTAdditionNN(
         hidden_size=model_info.get('hidden_size', 128),
         num_layers=model_info.get('num_layers', 2),
@@ -94,7 +93,6 @@ def plot_comparison(balanced_metrics, unbalanced_metrics, save_path):
     plt.suptitle('Balanced vs Unbalanced Training Comparison', y=1.05)
     plt.tight_layout()
     
-    # Save the plot
     plt.savefig(save_path, bbox_inches='tight', dpi=300)
     plt.close()
 
@@ -109,7 +107,6 @@ def main():
     balanced_metrics = load_metrics(balanced_path)
     unbalanced_metrics = load_metrics(unbalanced_path)
     
-    # Create and save comparison plot
     plot_comparison(balanced_metrics, unbalanced_metrics, 
                    experiments_dir / "training_comparison.png")
     
@@ -121,7 +118,6 @@ def main():
         transforms.Normalize((0.1307,), (0.3081,))
     ])
     
-    # Create test dataset
     print("\nInitializing test dataset...")
     test_dataset = MNISTAdditionDataset(
         root="data",
@@ -132,7 +128,6 @@ def main():
         balanced=True
     )
     
-    # Create test dataloader
     test_loader = DataLoader(
         test_dataset,
         batch_size=config['data']['batch_size'],
@@ -162,7 +157,6 @@ def main():
         unbalanced_model, test_loader, device
     )
     
-    # Print results
     print("\nTest Set Performance:")
     print(f"{'Model':<15} {'Accuracy':<10} {'Correct':<10} {'Total':<10}")
     print("-" * 45)

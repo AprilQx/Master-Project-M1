@@ -54,8 +54,7 @@ class MNISTAdditionDataset(Dataset):
         train_path = mnist_path / "training.pt"
         test_path = mnist_path / "test.pt"
 
-
-        # Download both train and test sets immediately if needed
+        # Check if MNIST dataset is already downloaded
         if download and (not train_path.exists() or not test_path.exists()):
             print("Downloading complete MNIST dataset...")
             # Download training set
@@ -184,7 +183,7 @@ def get_dataloaders(
             train=True,
             transform=transform,
             download=True,
-            seed=config['data']['random_seed'],
+            seed=42,
             balanced=True
         )
         print("Training dataset created successfully")
@@ -196,7 +195,7 @@ def get_dataloaders(
             train=False,
             transform=transform,
             download=True,
-            seed=config['data']['random_seed'],
+            seed=42,
             balanced=True
         )
         print("Test dataset created successfully")

@@ -70,7 +70,7 @@ def run_hyperparameter_tuning():
     total_experiments = len(param_combinations)
     logging.info(f"Running {total_experiments} experiments...")
 
-    # Save experiment setup details
+
     with open(exp_dir / 'experiment_setup.json', 'w') as f:
         setup_info = {
             'total_experiments': total_experiments,
@@ -144,7 +144,7 @@ def run_hyperparameter_tuning():
             with open(current_exp_dir / 'results.json', 'w') as f:
                 json.dump(result, f, indent=4)
             
-            # Save intermediate results after each experiment
+
             with open(exp_dir / 'current_results.json', 'w') as f:
                 json.dump(results, f, indent=4)
                 
@@ -153,13 +153,12 @@ def run_hyperparameter_tuning():
             with open(exp_dir / 'errors.log', 'a') as f:
                 f.write(f"\nExperiment {i} failed:\n{str(e)}\n")
             continue
-    # Save all results and best parameters
+
     with open(exp_dir / 'all_results.json', 'w') as f:
         json.dump(results, f, indent=4)
     with open(exp_dir / 'best_params.json', 'w') as f:
         json.dump(best_params, f, indent=4)
     
-    # Calculate and save some basic statistics
     df = pd.DataFrame(results)
     stats = {
         'mean_val_accuracy': df['best_val_accuracy'].mean(),
