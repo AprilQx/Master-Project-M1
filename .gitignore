@@ -33,3 +33,7 @@ experiments/*/best_model/
 !experiments/**/model_info.json
 !experiments/**/final_metrics_history.json
 !experiments/**/best_summary.json
+mnist_addition/data/processed/test_data.npy
+mnist_addition/data/processed/test_labels.npy
+mnist_addition/data/processed/train_data.npy
+mnist_addition/data/processed/train_labels.npy

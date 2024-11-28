@@ -3,6 +3,10 @@
 */__pycache__/
 __pycache__/
 *.py[cod]
+*.npy
+__pycache__/
+*.pyc
+
 
 *.pyc
 *.pyo
@@ -81,3 +85,6 @@ Desktop.ini
 
 # MNIST dataset directory
 mnist_addition/mnist_addition/data/MNIST/raw/
+mnist_addition/data/processed/*.npy
+data/processed/*.npy
+**/data/processed/*.npy
