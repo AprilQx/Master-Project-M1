@@ -37,3 +37,11 @@ mnist_addition/data/processed/test_data.npy
 mnist_addition/data/processed/test_labels.npy
 mnist_addition/data/processed/train_data.npy
 mnist_addition/data/processed/train_labels.npy
+mnist_addition/data/processed_classification/test_data.npy
+mnist_addition/data/processed_classification/test_left_labels.npy
+mnist_addition/data/processed_classification/test_right_labels.npy
+mnist_addition/data/processed_classification/test_sum_labels.npy
+mnist_addition/data/processed_classification/train_data.npy
+mnist_addition/data/processed_classification/train_right_labels.npy
+mnist_addition/data/processed_classification/train_left_labels.npy
+mnist_addition/data/processed_classification/train_sum_labels.npy
