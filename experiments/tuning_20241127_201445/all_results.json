@@ -1,9 +1,3060 @@
-[
+{
+  "experiments": [
     {
-        "experiment": 1,
+      "experiment_id": 1,
+      "epochs_completed": 20,
+      "model_config": {
         "hidden_size": 64,
         "num_layers": 2,
         "dropout_rate": 0.1,
-        "learning_rate": 0.001,
+        "learning_rate": 0.001
+      },
+      "data_config": {
         "batch_size": 32,
-        "best_val_accuracy": 
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_1"
+      },
+      "metrics": {
+        "loss": 0.7031599038177067,
+        "accuracy": 0.7993055582046509,
+        "recall": 0.7993055582046509
+      },
+      "best_epoch": 14
+    },
+    {
+      "experiment_id": 2,
+      "epochs_completed": 28,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_2"
+      },
+      "metrics": {
+        "loss": 0.8149832513597276,
+        "accuracy": 0.764910101890564,
+        "recall": 0.764910101890564
+      },
+      "best_epoch": 22
+    },
+    {
+      "experiment_id": 3,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_3"
+      },
+      "metrics": {
+        "loss": 0.8816478504074945,
+        "accuracy": 0.7416666746139526,
+        "recall": 0.7416666746139526
+      },
+      "best_epoch": 46
+    },
+    {
+      "experiment_id": 4,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_4"
+      },
+      "metrics": {
+        "loss": 0.9219597617785136,
+        "accuracy": 0.728063702583313,
+        "recall": 0.728063702583313
+      },
+      "best_epoch": 48
+    },
+    {
+      "experiment_id": 5,
+      "epochs_completed": 24,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_5"
+      },
+      "metrics": {
+        "loss": 0.7423048852218522,
+        "accuracy": 0.7822916507720947,
+        "recall": 0.7822916507720947
+      },
+      "best_epoch": 18
+    },
+    {
+      "experiment_id": 6,
+      "epochs_completed": 42,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_6"
+      },
+      "metrics": {
+        "loss": 0.799452625380622,
+        "accuracy": 0.7810049057006836,
+        "recall": 0.7810049057006836
+      },
+      "best_epoch": 36
+    },
+    {
+      "experiment_id": 7,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_7"
+      },
+      "metrics": {
+        "loss": 0.8803487019406424,
+        "accuracy": 0.7451388835906982,
+        "recall": 0.7451388835906982
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 8,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_8"
+      },
+      "metrics": {
+        "loss": 1.0015424887339275,
+        "accuracy": 0.7029207348823547,
+        "recall": 0.7029207348823547
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 9,
+      "epochs_completed": 40,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_9"
+      },
+      "metrics": {
+        "loss": 0.8914930211173163,
+        "accuracy": 0.7503471970558167,
+        "recall": 0.7503471970558167
+      },
+      "best_epoch": 34
+    },
+    {
+      "experiment_id": 10,
+      "epochs_completed": 22,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_10"
+      },
+      "metrics": {
+        "loss": 1.1392592324150934,
+        "accuracy": 0.6837826371192932,
+        "recall": 0.6837826371192932
+      },
+      "best_epoch": 16
+    },
+    {
+      "experiment_id": 11,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_11"
+      },
+      "metrics": {
+        "loss": 0.9900149934821658,
+        "accuracy": 0.7097222208976746,
+        "recall": 0.7097222208976746
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 12,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_12"
+      },
+      "metrics": {
+        "loss": 1.092419930299123,
+        "accuracy": 0.6897262930870056,
+        "recall": 0.6897262930870056
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 13,
+      "epochs_completed": 29,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_13"
+      },
+      "metrics": {
+        "loss": 0.6768973141908645,
+        "accuracy": 0.8118055462837219,
+        "recall": 0.8118055462837219
+      },
+      "best_epoch": 23
+    },
+    {
+      "experiment_id": 14,
+      "epochs_completed": 30,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_14"
+      },
+      "metrics": {
+        "loss": 0.695450120502048,
+        "accuracy": 0.8000612854957581,
+        "recall": 0.8000612854957581
+      },
+      "best_epoch": 24
+    },
+    {
+      "experiment_id": 15,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_15"
+      },
+      "metrics": {
+        "loss": 0.7770541015598509,
+        "accuracy": 0.7701388597488403,
+        "recall": 0.7701388597488403
+      },
+      "best_epoch": 46
+    },
+    {
+      "experiment_id": 16,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_16"
+      },
+      "metrics": {
+        "loss": 0.8918975035349528,
+        "accuracy": 0.7392973899841309,
+        "recall": 0.7392973899841309
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 17,
+      "epochs_completed": 31,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_17"
+      },
+      "metrics": {
+        "loss": 0.9481391840510898,
+        "accuracy": 0.7170138955116272,
+        "recall": 0.7170138955116272
+      },
+      "best_epoch": 25
+    },
+    {
+      "experiment_id": 18,
+      "epochs_completed": 40,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_18"
+      },
+      "metrics": {
+        "loss": 0.7341989835103353,
+        "accuracy": 0.7993260025978088,
+        "recall": 0.7993260025978088
+      },
+      "best_epoch": 34
+    },
+    {
+      "experiment_id": 19,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_19"
+      },
+      "metrics": {
+        "loss": 0.9201038115554385,
+        "accuracy": 0.7347221970558167,
+        "recall": 0.7347221970558167
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 20,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_20"
+      },
+      "metrics": {
+        "loss": 1.0210951950814988,
+        "accuracy": 0.7031862735748291,
+        "recall": 0.7031862735748291
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 21,
+      "epochs_completed": 29,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_21"
+      },
+      "metrics": {
+        "loss": 1.488570339149899,
+        "accuracy": 0.5315971970558167,
+        "recall": 0.5315971970558167
+      },
+      "best_epoch": 23
+    },
+    {
+      "experiment_id": 22,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_22"
+      },
+      "metrics": {
+        "loss": 1.109091091156006,
+        "accuracy": 0.6862131953239441,
+        "recall": 0.6862131953239441
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 23,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_23"
+      },
+      "metrics": {
+        "loss": 1.0995610372887716,
+        "accuracy": 0.6840277910232544,
+        "recall": 0.6840277910232544
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 24,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_24"
+      },
+      "metrics": {
+        "loss": 1.2762483504083422,
+        "accuracy": 0.5989583134651184,
+        "recall": 0.5989583134651184
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 25,
+      "epochs_completed": 24,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_25"
+      },
+      "metrics": {
+        "loss": 0.7122113787465625,
+        "accuracy": 0.8048611283302307,
+        "recall": 0.8048611283302307
+      },
+      "best_epoch": 18
+    },
+    {
+      "experiment_id": 26,
+      "epochs_completed": 35,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_26"
+      },
+      "metrics": {
+        "loss": 0.6674521115091112,
+        "accuracy": 0.8239787817001343,
+        "recall": 0.8239787817001343
+      },
+      "best_epoch": 29
+    },
+    {
+      "experiment_id": 27,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_27"
+      },
+      "metrics": {
+        "loss": 0.8629575785663393,
+        "accuracy": 0.7545138597488403,
+        "recall": 0.7545138597488403
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 28,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_28"
+      },
+      "metrics": {
+        "loss": 0.9232394297917684,
+        "accuracy": 0.7382148504257202,
+        "recall": 0.7382148504257202
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 29,
+      "epochs_completed": 37,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_29"
+      },
+      "metrics": {
+        "loss": 0.9482729127009709,
+        "accuracy": 0.737500011920929,
+        "recall": 0.737500011920929
+      },
+      "best_epoch": 31
+    },
+    {
+      "experiment_id": 30,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_30"
+      },
+      "metrics": {
+        "loss": 0.8378614558113946,
+        "accuracy": 0.7702410221099854,
+        "recall": 0.7702410221099854
+      },
+      "best_epoch": 47
+    },
+    {
+      "experiment_id": 31,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_31"
+      },
+      "metrics": {
+        "loss": 1.0737174888451895,
+        "accuracy": 0.6826388835906982,
+        "recall": 0.6826388835906982
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 32,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_32"
+      },
+      "metrics": {
+        "loss": 1.2404621137513054,
+        "accuracy": 0.6137663722038269,
+        "recall": 0.6137663722038269
+      },
+      "best_epoch": 47
+    },
+    {
+      "experiment_id": 33,
+      "epochs_completed": 47,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_33"
+      },
+      "metrics": {
+        "loss": 1.3406146354145474,
+        "accuracy": 0.5833333134651184,
+        "recall": 0.5833333134651184
+      },
+      "best_epoch": 41
+    },
+    {
+      "experiment_id": 34,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_34"
+      },
+      "metrics": {
+        "loss": 1.2056793067190381,
+        "accuracy": 0.6574346423149109,
+        "recall": 0.6574346423149109
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 35,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_35"
+      },
+      "metrics": {
+        "loss": 1.476744208070967,
+        "accuracy": 0.5114583373069763,
+        "recall": 0.5114583373069763
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 36,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_36"
+      },
+      "metrics": {
+        "loss": 1.5458700444963243,
+        "accuracy": 0.46362337470054626,
+        "recall": 0.46362337470054626
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 37,
+      "epochs_completed": 16,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_37"
+      },
+      "metrics": {
+        "loss": 0.6290116869741016,
+        "accuracy": 0.8291666507720947,
+        "recall": 0.8291666507720947
+      },
+      "best_epoch": 10
+    },
+    {
+      "experiment_id": 38,
+      "epochs_completed": 15,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_38"
+      },
+      "metrics": {
+        "loss": 0.657636519935396,
+        "accuracy": 0.812397837638855,
+        "recall": 0.812397837638855
+      },
+      "best_epoch": 9
+    },
+    {
+      "experiment_id": 39,
+      "epochs_completed": 41,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_39"
+      },
+      "metrics": {
+        "loss": 0.7440567122565376,
+        "accuracy": 0.7798610925674438,
+        "recall": 0.7798610925674438
+      },
+      "best_epoch": 35
+    },
+    {
+      "experiment_id": 40,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_40"
+      },
+      "metrics": {
+        "loss": 0.755322978231642,
+        "accuracy": 0.7840481996536255,
+        "recall": 0.7840481996536255
+      },
+      "best_epoch": 48
+    },
+    {
+      "experiment_id": 41,
+      "epochs_completed": 23,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_41"
+      },
+      "metrics": {
+        "loss": 0.5888621399799983,
+        "accuracy": 0.8381944298744202,
+        "recall": 0.8381944298744202
+      },
+      "best_epoch": 17
+    },
+    {
+      "experiment_id": 42,
+      "epochs_completed": 27,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_42"
+      },
+      "metrics": {
+        "loss": 0.6086790912681156,
+        "accuracy": 0.8347017765045166,
+        "recall": 0.8347017765045166
+      },
+      "best_epoch": 21
+    },
+    {
+      "experiment_id": 43,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_43"
+      },
+      "metrics": {
+        "loss": 0.6816426936123107,
+        "accuracy": 0.8048611283302307,
+        "recall": 0.8048611283302307
+      },
+      "best_epoch": 44
+    },
+    {
+      "experiment_id": 44,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_44"
+      },
+      "metrics": {
+        "loss": 0.7215226266119216,
+        "accuracy": 0.7918301224708557,
+        "recall": 0.7918301224708557
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 45,
+      "epochs_completed": 27,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_45"
+      },
+      "metrics": {
+        "loss": 0.6058373999264505,
+        "accuracy": 0.8368055820465088,
+        "recall": 0.8368055820465088
+      },
+      "best_epoch": 21
+    },
+    {
+      "experiment_id": 46,
+      "epochs_completed": 36,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_46"
+      },
+      "metrics": {
+        "loss": 0.6398350682523516,
+        "accuracy": 0.8220792412757874,
+        "recall": 0.8220792412757874
+      },
+      "best_epoch": 30
+    },
+    {
+      "experiment_id": 47,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_47"
+      },
+      "metrics": {
+        "loss": 0.7389820966455671,
+        "accuracy": 0.7861111164093018,
+        "recall": 0.7861111164093018
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 48,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_48"
+      },
+      "metrics": {
+        "loss": 0.7662879135873583,
+        "accuracy": 0.7756331562995911,
+        "recall": 0.7756331562995911
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 49,
+      "epochs_completed": 17,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_49"
+      },
+      "metrics": {
+        "loss": 0.5465574955774678,
+        "accuracy": 0.8520833253860474,
+        "recall": 0.8520833253860474
+      },
+      "best_epoch": 11
+    },
+    {
+      "experiment_id": 50,
+      "epochs_completed": 20,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_50"
+      },
+      "metrics": {
+        "loss": 0.590925442510181,
+        "accuracy": 0.8443014621734619,
+        "recall": 0.8443014621734619
+      },
+      "best_epoch": 14
+    },
+    {
+      "experiment_id": 51,
+      "epochs_completed": 44,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_51"
+      },
+      "metrics": {
+        "loss": 0.6529307704832819,
+        "accuracy": 0.8177083134651184,
+        "recall": 0.8177083134651184
+      },
+      "best_epoch": 38
+    },
+    {
+      "experiment_id": 52,
+      "epochs_completed": 49,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_52"
+      },
+      "metrics": {
+        "loss": 0.6739363544517093,
+        "accuracy": 0.809395432472229,
+        "recall": 0.809395432472229
+      },
+      "best_epoch": 43
+    },
+    {
+      "experiment_id": 53,
+      "epochs_completed": 35,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_53"
+      },
+      "metrics": {
+        "loss": 0.5540586702525616,
+        "accuracy": 0.8486111164093018,
+        "recall": 0.8486111164093018
+      },
+      "best_epoch": 29
+    },
+    {
+      "experiment_id": 54,
+      "epochs_completed": 26,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_54"
+      },
+      "metrics": {
+        "loss": 0.5661036001311408,
+        "accuracy": 0.850551426410675,
+        "recall": 0.850551426410675
+      },
+      "best_epoch": 20
+    },
+    {
+      "experiment_id": 55,
+      "epochs_completed": 49,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_55"
+      },
+      "metrics": {
+        "loss": 0.6193699315190315,
+        "accuracy": 0.8388888835906982,
+        "recall": 0.8388888835906982
+      },
+      "best_epoch": 43
+    },
+    {
+      "experiment_id": 56,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_56"
+      },
+      "metrics": {
+        "loss": 0.6609107666545444,
+        "accuracy": 0.8151756525039673,
+        "recall": 0.8151756525039673
+      },
+      "best_epoch": 48
+    },
+    {
+      "experiment_id": 57,
+      "epochs_completed": 32,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_57"
+      },
+      "metrics": {
+        "loss": 0.6472494304180145,
+        "accuracy": 0.8190972208976746,
+        "recall": 0.8190972208976746
+      },
+      "best_epoch": 26
+    },
+    {
+      "experiment_id": 58,
+      "epochs_completed": 38,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_58"
+      },
+      "metrics": {
+        "loss": 0.5764013654655881,
+        "accuracy": 0.8384395241737366,
+        "recall": 0.8384395241737366
+      },
+      "best_epoch": 32
+    },
+    {
+      "experiment_id": 59,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_59"
+      },
+      "metrics": {
+        "loss": 0.6703440527121226,
+        "accuracy": 0.8211805820465088,
+        "recall": 0.8211805820465088
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 60,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_60"
+      },
+      "metrics": {
+        "loss": 0.7151717921098073,
+        "accuracy": 0.8023284077644348,
+        "recall": 0.8023284077644348
+      },
+      "best_epoch": 48
+    },
+    {
+      "experiment_id": 61,
+      "epochs_completed": 22,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_61"
+      },
+      "metrics": {
+        "loss": 0.5381672145591841,
+        "accuracy": 0.8645833134651184,
+        "recall": 0.8645833134651184
+      },
+      "best_epoch": 16
+    },
+    {
+      "experiment_id": 62,
+      "epochs_completed": 16,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_62"
+      },
+      "metrics": {
+        "loss": 0.569394318262736,
+        "accuracy": 0.8439542055130005,
+        "recall": 0.8439542055130005
+      },
+      "best_epoch": 10
+    },
+    {
+      "experiment_id": 63,
+      "epochs_completed": 36,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_63"
+      },
+      "metrics": {
+        "loss": 0.6270778871244854,
+        "accuracy": 0.8295139074325562,
+        "recall": 0.8295139074325562
+      },
+      "best_epoch": 30
+    },
+    {
+      "experiment_id": 64,
+      "epochs_completed": 49,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_64"
+      },
+      "metrics": {
+        "loss": 0.6075874368349711,
+        "accuracy": 0.8311887383460999,
+        "recall": 0.8311887383460999
+      },
+      "best_epoch": 46
+    },
+    {
+      "experiment_id": 65,
+      "epochs_completed": 22,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_65"
+      },
+      "metrics": {
+        "loss": 0.6265021160244941,
+        "accuracy": 0.8315972089767456,
+        "recall": 0.8315972089767456
+      },
+      "best_epoch": 16
+    },
+    {
+      "experiment_id": 66,
+      "epochs_completed": 30,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_66"
+      },
+      "metrics": {
+        "loss": 0.5291926344235738,
+        "accuracy": 0.858843982219696,
+        "recall": 0.858843982219696
+      },
+      "best_epoch": 24
+    },
+    {
+      "experiment_id": 67,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_67"
+      },
+      "metrics": {
+        "loss": 0.6002208708061112,
+        "accuracy": 0.8458333611488342,
+        "recall": 0.8458333611488342
+      },
+      "best_epoch": 46
+    },
+    {
+      "experiment_id": 68,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_68"
+      },
+      "metrics": {
+        "loss": 0.6652539041307237,
+        "accuracy": 0.821813702583313,
+        "recall": 0.821813702583313
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 69,
+      "epochs_completed": 44,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_69"
+      },
+      "metrics": {
+        "loss": 0.7293979038794836,
+        "accuracy": 0.8027777671813965,
+        "recall": 0.8027777671813965
+      },
+      "best_epoch": 38
+    },
+    {
+      "experiment_id": 70,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_70"
+      },
+      "metrics": {
+        "loss": 0.596442723274231,
+        "accuracy": 0.8426061868667603,
+        "recall": 0.8426061868667603
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 71,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_71"
+      },
+      "metrics": {
+        "loss": 0.7518967121839524,
+        "accuracy": 0.7951388955116272,
+        "recall": 0.7951388955116272
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 72,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_72"
+      },
+      "metrics": {
+        "loss": 0.8680208762486775,
+        "accuracy": 0.7510212659835815,
+        "recall": 0.7510212659835815
+      },
+      "best_epoch": 49
+    },
+    {
+      "experiment_id": 73,
+      "epochs_completed": 13,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_73"
+      },
+      "metrics": {
+        "loss": 0.5677385767300923,
+        "accuracy": 0.8451389074325562,
+        "recall": 0.8451389074325562
+      },
+      "best_epoch": 7
+    },
+    {
+      "experiment_id": 74,
+      "epochs_completed": 15,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_74"
+      },
+      "metrics": {
+        "loss": 0.576544216606352,
+        "accuracy": 0.8495914936065674,
+        "recall": 0.8495914936065674
+      },
+      "best_epoch": 9
+    },
+    {
+      "experiment_id": 75,
+      "epochs_completed": 26,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_75"
+      },
+      "metrics": {
+        "loss": 0.6968934188286463,
+        "accuracy": 0.7861111164093018,
+        "recall": 0.7861111164093018
+      },
+      "best_epoch": 20
+    },
+    {
+      "experiment_id": 76,
+      "epochs_completed": 34,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_76"
+      },
+      "metrics": {
+        "loss": 0.7168423023488787,
+        "accuracy": 0.7878267765045166,
+        "recall": 0.7878267765045166
+      },
+      "best_epoch": 28
+    },
+    {
+      "experiment_id": 77,
+      "epochs_completed": 14,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_77"
+      },
+      "metrics": {
+        "loss": 0.5445004648632473,
+        "accuracy": 0.8465277552604675,
+        "recall": 0.8465277552604675
+      },
+      "best_epoch": 8
+    },
+    {
+      "experiment_id": 78,
+      "epochs_completed": 13,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_78"
+      },
+      "metrics": {
+        "loss": 0.5446390310923258,
+        "accuracy": 0.8492034077644348,
+        "recall": 0.8492034077644348
+      },
+      "best_epoch": 7
+    },
+    {
+      "experiment_id": 79,
+      "epochs_completed": 35,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_79"
+      },
+      "metrics": {
+        "loss": 0.6631805197232299,
+        "accuracy": 0.8083333373069763,
+        "recall": 0.8083333373069763
+      },
+      "best_epoch": 29
+    },
+    {
+      "experiment_id": 80,
+      "epochs_completed": 41,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_80"
+      },
+      "metrics": {
+        "loss": 0.6736465116341909,
+        "accuracy": 0.8058415055274963,
+        "recall": 0.8058415055274963
+      },
+      "best_epoch": 35
+    },
+    {
+      "experiment_id": 81,
+      "epochs_completed": 17,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_81"
+      },
+      "metrics": {
+        "loss": 0.5776960578229692,
+        "accuracy": 0.8340277671813965,
+        "recall": 0.8340277671813965
+      },
+      "best_epoch": 11
+    },
+    {
+      "experiment_id": 82,
+      "epochs_completed": 22,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_82"
+      },
+      "metrics": {
+        "loss": 0.530175119638443,
+        "accuracy": 0.8603553771972656,
+        "recall": 0.8603553771972656
+      },
+      "best_epoch": 16
+    },
+    {
+      "experiment_id": 83,
+      "epochs_completed": 37,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_83"
+      },
+      "metrics": {
+        "loss": 0.6373236358165741,
+        "accuracy": 0.8229166865348816,
+        "recall": 0.8229166865348816
+      },
+      "best_epoch": 31
+    },
+    {
+      "experiment_id": 84,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 2,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_84"
+      },
+      "metrics": {
+        "loss": 0.660475676589542,
+        "accuracy": 0.809395432472229,
+        "recall": 0.809395432472229
+      },
+      "best_epoch": 47
+    },
+    {
+      "experiment_id": 85,
+      "epochs_completed": 19,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_85"
+      },
+      "metrics": {
+        "loss": 0.5241942870534129,
+        "accuracy": 0.8805555701255798,
+        "recall": 0.8805555701255798
+      },
+      "best_epoch": 13
+    },
+    {
+      "experiment_id": 86,
+      "epochs_completed": 13,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_86"
+      },
+      "metrics": {
+        "loss": 0.5184435851044125,
+        "accuracy": 0.8606208562850952,
+        "recall": 0.8606208562850952
+      },
+      "best_epoch": 7
+    },
+    {
+      "experiment_id": 87,
+      "epochs_completed": 27,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_87"
+      },
+      "metrics": {
+        "loss": 0.6274116632011202,
+        "accuracy": 0.8336805701255798,
+        "recall": 0.8336805701255798
+      },
+      "best_epoch": 21
+    },
+    {
+      "experiment_id": 88,
+      "epochs_completed": 35,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_88"
+      },
+      "metrics": {
+        "loss": 0.6179649922582838,
+        "accuracy": 0.8377450704574585,
+        "recall": 0.8377450704574585
+      },
+      "best_epoch": 29
+    },
+    {
+      "experiment_id": 89,
+      "epochs_completed": 18,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_89"
+      },
+      "metrics": {
+        "loss": 0.5165935605764389,
+        "accuracy": 0.859375,
+        "recall": 0.859375
+      },
+      "best_epoch": 12
+    },
+    {
+      "experiment_id": 90,
+      "epochs_completed": 18,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_90"
+      },
+      "metrics": {
+        "loss": 0.511980343858401,
+        "accuracy": 0.8597018122673035,
+        "recall": 0.8597018122673035
+      },
+      "best_epoch": 12
+    },
+    {
+      "experiment_id": 91,
+      "epochs_completed": 34,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_91"
+      },
+      "metrics": {
+        "loss": 0.5600474367539088,
+        "accuracy": 0.8461805582046509,
+        "recall": 0.8461805582046509
+      },
+      "best_epoch": 28
+    },
+    {
+      "experiment_id": 92,
+      "epochs_completed": 35,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_92"
+      },
+      "metrics": {
+        "loss": 0.5933566921287112,
+        "accuracy": 0.8315359354019165,
+        "recall": 0.8315359354019165
+      },
+      "best_epoch": 29
+    },
+    {
+      "experiment_id": 93,
+      "epochs_completed": 27,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_93"
+      },
+      "metrics": {
+        "loss": 0.5037538387709194,
+        "accuracy": 0.863194465637207,
+        "recall": 0.863194465637207
+      },
+      "best_epoch": 21
+    },
+    {
+      "experiment_id": 94,
+      "epochs_completed": 23,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_94"
+      },
+      "metrics": {
+        "loss": 0.4871097399128808,
+        "accuracy": 0.8633986711502075,
+        "recall": 0.8633986711502075
+      },
+      "best_epoch": 17
+    },
+    {
+      "experiment_id": 95,
+      "epochs_completed": 38,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_95"
+      },
+      "metrics": {
+        "loss": 0.5588170861204466,
+        "accuracy": 0.8531249761581421,
+        "recall": 0.8531249761581421
+      },
+      "best_epoch": 32
+    },
+    {
+      "experiment_id": 96,
+      "epochs_completed": 50,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 3,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_96"
+      },
+      "metrics": {
+        "loss": 0.5683376196357939,
+        "accuracy": 0.8471200466156006,
+        "recall": 0.8471200466156006
+      },
+      "best_epoch": 44
+    },
+    {
+      "experiment_id": 97,
+      "epochs_completed": 16,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_97"
+      },
+      "metrics": {
+        "loss": 0.5082779406259458,
+        "accuracy": 0.8722222447395325,
+        "recall": 0.8722222447395325
+      },
+      "best_epoch": 10
+    },
+    {
+      "experiment_id": 98,
+      "epochs_completed": 15,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_98"
+      },
+      "metrics": {
+        "loss": 0.5285459230343501,
+        "accuracy": 0.8537172675132751,
+        "recall": 0.8537172675132751
+      },
+      "best_epoch": 9
+    },
+    {
+      "experiment_id": 99,
+      "epochs_completed": 25,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_99"
+      },
+      "metrics": {
+        "loss": 0.6139439860979716,
+        "accuracy": 0.8402777910232544,
+        "recall": 0.8402777910232544
+      },
+      "best_epoch": 19
+    },
+    {
+      "experiment_id": 100,
+      "epochs_completed": 33,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.1,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_100"
+      },
+      "metrics": {
+        "loss": 0.5979971845944723,
+        "accuracy": 0.8408291935920715,
+        "recall": 0.8408291935920715
+      },
+      "best_epoch": 27
+    },
+    {
+      "experiment_id": 101,
+      "epochs_completed": 23,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_101"
+      },
+      "metrics": {
+        "loss": 0.5115684764252768,
+        "accuracy": 0.8729166388511658,
+        "recall": 0.8729166388511658
+      },
+      "best_epoch": 17
+    },
+    {
+      "experiment_id": 102,
+      "epochs_completed": 28,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_102"
+      },
+      "metrics": {
+        "loss": 0.4823926955461502,
+        "accuracy": 0.8830678462982178,
+        "recall": 0.8830678462982178
+      },
+      "best_epoch": 22
+    },
+    {
+      "experiment_id": 103,
+      "epochs_completed": 28,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_103"
+      },
+      "metrics": {
+        "loss": 0.5741684741444057,
+        "accuracy": 0.8402777910232544,
+        "recall": 0.8402777910232544
+      },
+      "best_epoch": 22
+    },
+    {
+      "experiment_id": 104,
+      "epochs_completed": 37,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_104"
+      },
+      "metrics": {
+        "loss": 0.5742283099227481,
+        "accuracy": 0.8443014621734619,
+        "recall": 0.8443014621734619
+      },
+      "best_epoch": 33
+    },
+    {
+      "experiment_id": 105,
+      "epochs_completed": 23,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_105"
+      },
+      "metrics": {
+        "loss": 0.5837906395395597,
+        "accuracy": 0.8458333611488342,
+        "recall": 0.8458333611488342
+      },
+      "best_epoch": 17
+    },
+    {
+      "experiment_id": 106,
+      "epochs_completed": 31,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_106"
+      },
+      "metrics": {
+        "loss": 0.480134055018425,
+        "accuracy": 0.8713847398757935,
+        "recall": 0.8713847398757935
+      },
+      "best_epoch": 25
+    },
+    {
+      "experiment_id": 107,
+      "epochs_completed": 41,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_107"
+      },
+      "metrics": {
+        "loss": 0.5762886265913646,
+        "accuracy": 0.8590278029441833,
+        "recall": 0.8590278029441833
+      },
+      "best_epoch": 39
+    },
+    {
+      "experiment_id": 108,
+      "epochs_completed": 40,
+      "model_config": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.0001
+      },
+      "data_config": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train_config": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_108"
+      },
+      "metrics": {
+        "loss": 0.6180170814196269,
+        "accuracy": 0.8418301343917847,
+        "recall": 0.8418301343917847
+      },
+      "best_epoch": 34
+    }
+  ],
+  "total_experiments": 108,
+  "epoch_statistics": {
+    "min_epochs": 13,
+    "max_epochs": 50,
+    "avg_epochs": 35.98148148148148
+  },
+  "timestamp": "20241127",
+  "best_model": {
+    "experiment_id": 102,
+    "accuracy": 0.8830678462982178,
+    "epochs_completed": 28,
+    "config": {
+      "model": {
+        "hidden_size": 256,
+        "num_layers": 4,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001
+      },
+      "data": {
+        "batch_size": 64,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+      },
+      "train": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_102"
+      }
+    }
+  }
+}
