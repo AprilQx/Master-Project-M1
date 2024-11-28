@@ -89,7 +89,7 @@ class MNISTAdditionDataset(Dataset):
         print(f"Generated {len(self.pairs)} pairs")
 
         # Verify statistical properties
-        #self._verify_statistics()
+        self._verify_statistics()
         print("Dataset initialization complete")
 
     def _create_digit_indices(self) -> Dict[int, np.ndarray]:
@@ -98,6 +98,32 @@ class MNISTAdditionDataset(Dataset):
         for idx, (_, target) in enumerate(self.mnist):
             digit_to_indices[target].append(idx)
         return {k:np.array(v) for k,v in digit_to_indices.items()}
+
+    # def _verify_statistics(self):
+
+    #     """Here, we verify the statics and print some logging info"""
+    #     sum_counts=Counter(self.targets)
+    #     total_pairs=len(self.targets)
+
+    #     #Here we print some statistics results
+    #     mean_sum=np.mean(self.targets)
+    #     std_sum=np.std(self.targets)
+
+    #     #Here we print some logging info
+    #     logging.info("Dataset statistics:")
+    #     logging.info(f"Total pairs: {total_pairs}")
+    #     logging.info(f"Mean sum: {mean_sum:.2f}")
+    #     logging.info(f"Std sum: {std_sum:.2f}")
+
+    #     #Here we plot the distribution of the sums
+    #     plt.figure(figsize=(10,5))
+    #     sums,counts=zip(*sorted(sum_counts.items()))
+    #     plt.bar(sums,counts)
+    #     plt.xlabel("Sum")
+    #     plt.ylabel("Count")
+    #     plt.title("Distribution of sums")
+    #     plt.show()
+
     
     def _generate_balanced_pairs(self) -> Tuple[np.ndarray, np.ndarray]:
         """Generate balanced pairs"""
