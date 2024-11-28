@@ -1,0 +1,8 @@
+{
+    "experiment": 39,
+    "hidden_size": 128,
+    "num_layers": 2,
+    "dropout_rate": 0.1,
+    "learning_rate": 0.0001,
+    "batch_size": 32,
+    "best_val_accuracy": 

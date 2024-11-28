@@ -1,0 +1,28 @@
+{
+    "epoch": 30,
+    "metrics": {
+        "loss": 0.6398350682523516,
+        "accuracy": 0.8220792412757874,
+        "recall": 0.8220792412757874
+    },
+    "config": {
+        "data": {
+            "batch_size": 64,
+            "train_split": 0.7,
+            "val_split": 0.15,
+            "random_seed": 42,
+            "num_workers": 4
+        },
+        "model": {
+            "hidden_size": 128,
+            "num_layers": 2,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001
+        },
+        "train": {
+            "epochs": 50,
+            "device": "mps",
+            "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_46"
+        }
+    }
+}

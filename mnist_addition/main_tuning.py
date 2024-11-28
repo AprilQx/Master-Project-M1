@@ -2,7 +2,7 @@ import torch
 import logging
 from pathlib import Path
 import json
-import sys
+import sys,os
 from datetime import datetime
 import pandas as pd
 
@@ -11,19 +11,22 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
-# Get project root and add to path
-PROJECT_ROOT = Path(__file__).parent.parent
-sys.path.append(str(PROJECT_ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parent
+sys.path.append(str(PROJECT_ROOT.parent))
 
-from utils.config import load_config
-from models.Mnist_Addition_nn import create_model
-from data.dataset import get_dataloaders
-from training.train import ModelTrainer
+from mnist_addition.utils.config import load_config
+from mnist_addition.models.Mnist_Addition_nn import create_model
+from mnist_addition.data.dataset import get_dataloaders
+from mnist_addition.training.train import ModelTrainer
+
+CONFIG_PATH = PROJECT_ROOT / 'config.toml'
+print(f"Current working directory: {os.getcwd()}")
+
 
 def setup_experiment_dir() -> Path:
     """Create and return experiment directory with timestamp"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    exp_dir = PROJECT_ROOT / "experiments" / f"tuning_{timestamp}"
+    exp_dir = PROJECT_ROOT.parent / "experiments" / f"tuning_{timestamp}"
     exp_dir.mkdir(parents=True, exist_ok=True)
     return exp_dir
 
@@ -67,12 +70,15 @@ def run_hyperparameter_tuning():
     total_experiments = len(param_combinations)
     logging.info(f"Running {total_experiments} experiments...")
 
-    # Save total number of experiments
-    with open(exp_dir / 'experiment_count.txt', 'w') as f:
-        f.write(f"Total experiments: {total_experiments}\n")
-        f.write(f"Total parameter combinations: {len(param_combinations)}\n")
-        f.write("\nParameter grid:\n")
-        f.write(json.dumps(param_grid, indent=2))
+    # Save experiment setup details
+    with open(exp_dir / 'experiment_setup.json', 'w') as f:
+        setup_info = {
+            'total_experiments': total_experiments,
+            'parameter_grid': param_grid,
+            'timestamp': datetime.now().isoformat(),
+            'device': str(torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu"))
+        }
+        json.dump(setup_info, f, indent=4)
 
     for i, (hidden_size, num_layers, dropout_rate, lr, batch_size) in enumerate(param_combinations, 1):
         # Update config with current parameters

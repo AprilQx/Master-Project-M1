@@ -1,0 +1,25 @@
+{
+    "config": {
+        "data": {
+            "batch_size": 32,
+            "train_split": 0.7,
+            "val_split": 0.15,
+            "random_seed": 42,
+            "num_workers": 4
+        },
+        "model": {
+            "hidden_size": 256,
+            "num_layers": 3,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0001
+        },
+        "train": {
+            "epochs": 50,
+            "device": "mps",
+            "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445/exp_95"
+        }
+    },
+    "model_architecture": "MNISTAdditionNN(\n  (network): Sequential(\n    (0): Flatten(start_dim=1, end_dim=-1)\n    (1): Linear(in_features=1568, out_features=256, bias=True)\n    (2): ReLU()\n    (3): Dropout(p=0.3, inplace=False)\n    (4): Linear(in_features=256, out_features=256, bias=True)\n    (5): ReLU()\n    (6): Dropout(p=0.3, inplace=False)\n    (7): Linear(in_features=256, out_features=256, bias=True)\n    (8): ReLU()\n    (9): Dropout(p=0.3, inplace=False)\n    (10): Linear(in_features=256, out_features=19, bias=True)\n  )\n  (embedding): Dropout(p=0.3, inplace=False)\n)",
+    "model_parameters": 538131,
+    "trainable_parameters": 538131
+}
