@@ -20,7 +20,6 @@ def load_mnist_data(data_path: str) -> Tuple[np.ndarray, np.ndarray, np.ndarray,
     test_data = np.load(f"{data_path}/test_data.npy")
     test_labels = np.load(f"{data_path}/test_labels.npy")
     
-    # Reshape the data for sklearn models (flatten the images)
     train_data = train_data.reshape(train_data.shape[0], -1)
     test_data = test_data.reshape(test_data.shape[0], -1)
     
@@ -36,21 +35,21 @@ def train_and_evaluate_models(train_data: np.ndarray, train_labels: np.ndarray,
     rf_model = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
     svm_model = SVC(kernel='rbf', random_state=42)
     
-    # Train models
+
     print("Training Random Forest...")
     rf_model.fit(train_data, train_labels)
     print("Training SVM...")
     svm_model.fit(train_data, train_labels)
     
-    # Get predictions
+
     rf_pred = rf_model.predict(test_data)
     svm_pred = svm_model.predict(test_data)
     
-    # Calculate accuracy
+
     rf_accuracy = accuracy_score(test_labels, rf_pred)
     svm_accuracy = accuracy_score(test_labels, svm_pred)
     
-    # Generate classification reports
+
     rf_report = classification_report(test_labels, rf_pred, output_dict=True)
     svm_report = classification_report(test_labels, svm_pred, output_dict=True)
     

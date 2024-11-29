@@ -27,10 +27,6 @@ class MNISTAdditionNN(nn.Module):
     def forward(self, x):
         return self.network(x)
     
-    def get_embeddings(self, x: torch.Tensor) -> torch.Tensor:
-        for layer in self.network[:-1]:
-            x = layer(x)
-        return x
 
 def create_model(config: Dict[str, Any]) -> MNISTAdditionNN:
     """Create a new MNIST Addition model from config."""

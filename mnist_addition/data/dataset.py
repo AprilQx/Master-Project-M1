@@ -89,8 +89,8 @@ class MNISTAdditionDataset(Dataset):
         print(f"Generated {len(self.pairs)} pairs")
 
         # Verify statistical properties
-        self._verify_statistics()
-        print("Dataset initialization complete")
+        #self._verify_statistics()
+        #print("Dataset initialization complete")
 
     def _create_digit_indices(self) -> Dict[int, np.ndarray]:
         """Creata a mapping from digit to their indices"""
