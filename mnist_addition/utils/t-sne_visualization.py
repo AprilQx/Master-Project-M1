@@ -56,7 +56,6 @@ def extract_embedding_features(model, dataloader, device='cpu'):
             x = data
             for layer in model.network[:-1]:  # All layers except last Linear layer
                 x = layer(x)
-            # Get the embedding from the second-to-last layer
             embedding = model.embedding(x)
             
             features.append(embedding.cpu().numpy())
@@ -64,37 +63,6 @@ def extract_embedding_features(model, dataloader, device='cpu'):
             
     return np.vstack(features), np.concatenate(labels)
 
-def find_optimal_perplexity(data, perplexities=[5, 10, 30, 50, 75]):
-    """Find optimal perplexity value with fallback"""
-    best_kl = float('inf')
-    best_perp = None
-    best_embedding = None
-    
-    print("Optimizing perplexity...")
-    for perp in tqdm(perplexities):
-        try:
-            tsne = TSNE(n_components=2, perplexity=perp, n_iter=1000,
-                        random_state=42, init='pca')
-            embedding = tsne.fit_transform(data)
-            kl_div = tsne.kl_divergence_
-            
-            if kl_div < best_kl:
-                best_kl = kl_div
-                best_perp = perp
-                best_embedding = embedding
-        except Exception as e:
-            print(f"Warning: Failed with perplexity {perp}: {str(e)}")
-            continue
-    
-    # Fallback if no valid result found
-    if best_embedding is None:
-        print("Warning: Using default perplexity as optimization failed")
-        tsne = TSNE(n_components=2, perplexity=30, n_iter=1000,
-                    random_state=42, init='pca')
-        best_embedding = tsne.fit_transform(data)
-        best_perp = 30
-    
-    return best_embedding, best_perp
 
 def extract_raw_features(dataloader):
     """Extract raw features from the dataloader"""
@@ -108,52 +76,121 @@ def extract_raw_features(dataloader):
     return np.vstack(features), np.concatenate(labels)
 
 def plot_tsne_comparison(raw_embedding, model_embedding, labels, perp_raw, perp_model, save_path):
-    """Create comparison plot of raw and model embeddings"""
+    """Create improved comparison plot"""
+    plt.style.use('seaborn')
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 8))
+    
+    # Use a better colormap for numerical values
+    cmap = plt.cm.viridis
     
     # Plot raw input t-SNE
     scatter1 = ax1.scatter(raw_embedding[:, 0], raw_embedding[:, 1], 
-                          c=labels, cmap='tab20', alpha=0.6)
-    ax1.set_title(f'Raw Input t-SNE (perplexity={perp_raw})')
-    ax1.set_xlabel('t-SNE 1')
-    ax1.set_ylabel('t-SNE 2')
-    plt.colorbar(scatter1, ax=ax1)
+                          c=labels, cmap=cmap, alpha=0.7,
+                          s=70)  # Adjusted point size
+    ax1.set_title(f'Raw Input t-SNE\n(perplexity={perp_raw})', fontsize=12)
+    ax1.set_xlabel('t-SNE Component 1', fontsize=10)
+    ax1.set_ylabel('t-SNE Component 2', fontsize=10)
+    cbar1 = plt.colorbar(scatter1, ax=ax1)
+    cbar1.set_label('Sum Value', fontsize=10)
+    ax1.grid(True, alpha=0.2)
     
     # Plot model embedding t-SNE
     scatter2 = ax2.scatter(model_embedding[:, 0], model_embedding[:, 1], 
-                          c=labels, cmap='tab20', alpha=0.6)
-    ax2.set_title(f'Model Embedding t-SNE (perplexity={perp_model})')
-    ax2.set_xlabel('t-SNE 1')
-    ax2.set_ylabel('t-SNE 2')
-    plt.colorbar(scatter2, ax=ax2)
+                          c=labels, cmap=cmap, alpha=0.7,
+                          s=70)
+    ax2.set_title(f'Model Embedding t-SNE\n(perplexity={perp_model})', fontsize=12)
+    ax2.set_xlabel('t-SNE Component 1', fontsize=10)
+    ax2.set_ylabel('t-SNE Component 2', fontsize=10)
+    cbar2 = plt.colorbar(scatter2, ax=ax2)
+    cbar2.set_label('Sum Value', fontsize=10)
+    ax2.grid(True, alpha=0.2)
+    
+    # Add information about dataset
+    plt.figtext(0.02, 0.98, 
+                f'Dataset size: {len(labels)}\n'
+                f'Unique sums: {len(np.unique(labels))}',
+                fontsize=10, va='top')
     
     plt.tight_layout()
-    plt.savefig(save_path)
+    plt.savefig(save_path, dpi=300, bbox_inches='tight')
     plt.close()
 
+def find_optimal_perplexity(data, perplexities=[30, 35, 40, 45, 50, 55, 60, 65, 70]):
+    """Find optimal perplexity value with fallback"""
+    best_kl = float('inf')
+    best_perp = None
+    best_embedding = None
+    
+    print("Optimizing perplexity...")
+    for perp in tqdm(perplexities):
+        try:
+            # Use simpler t-SNE settings but process all data
+            tsne = TSNE(n_components=2, 
+                       perplexity=min(perp, data.shape[0] - 1),  # Ensure valid perplexity
+                       n_iter=2000,  
+                       random_state=42, 
+                       init='pca',
+                       verbose=1,
+                       method='exact',
+                       early_exaggeration=12.0,
+                       learning_rate='auto',
+                       n_jobs=1)  # Single thread for stability
+            
+            embedding = tsne.fit_transform(data)
+            kl_div = tsne.kl_divergence_
+            
+            if kl_div < best_kl:
+                best_kl = kl_div
+                best_perp = perp
+                best_embedding = embedding
+        except Exception as e:
+            print(f"Warning: Failed with perplexity {perp}: {str(e)}")
+            continue
+    
+    return best_embedding, best_perp
+
 def extract_features_and_visualize(model, dataloader, save_dir, device='cpu'):
-    """Extract features and create visualization with consistent scaling"""
+    """Extract features and create visualization with separate scaling"""
     # Extract features
     model_features, labels = extract_embedding_features(model, dataloader, device)
     raw_features, _ = extract_raw_features(dataloader)
     
-    # Use single scaler for consistency
-    scaler = StandardScaler()
-    raw_features_scaled = scaler.fit_transform(raw_features)
-    model_features_scaled = scaler.transform(model_features)  # Use same scaler
+    print(f"Raw features shape: {raw_features.shape}")
+    print(f"Model features shape: {model_features.shape}")
+    
+    # Use separate scalers for raw and model features
+    raw_scaler = StandardScaler()
+    model_scaler = StandardScaler()
+    
+    # Ensure data is float32 for better numerical stability
+    raw_features = raw_features.astype(np.float32)
+    model_features = model_features.astype(np.float32)
+    
+    raw_features_scaled = raw_scaler.fit_transform(raw_features)
+    model_features_scaled = model_scaler.fit_transform(model_features)
     
     # Handle potential NaN values
     raw_features_scaled = np.nan_to_num(raw_features_scaled)
     model_features_scaled = np.nan_to_num(model_features_scaled)
     
     # Find optimal perplexity and get embeddings
+    print("\nProcessing raw features...")
     raw_embedding, perp_raw = find_optimal_perplexity(raw_features_scaled)
+    if raw_embedding is None:
+        raise RuntimeError("t-SNE failed for raw features")
+    
+    print("\nProcessing model features...")    
     model_embedding, perp_model = find_optimal_perplexity(model_features_scaled)
+    if model_embedding is None:
+        raise RuntimeError("t-SNE failed for model features")
     
     # Create visualization
+    print("\nCreating visualization...")
     plot_tsne_comparison(raw_embedding, model_embedding, labels,
                         perp_raw, perp_model,
                         save_dir / "tsne_comparison.png")
+    
+    print("Visualization completed successfully")
     
     return {
         'raw_perplexity': perp_raw,
