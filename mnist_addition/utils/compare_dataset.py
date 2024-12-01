@@ -157,7 +157,7 @@ def main():
         unbalanced_model, test_loader, device
     )
     
-    print("\nTest Set Performance:")
+    print("\nTest Set Performance for balanced test dataset:")
     print(f"{'Model':<15} {'Accuracy':<10} {'Correct':<10} {'Total':<10}")
     print("-" * 45)
     print(f"{'Balanced':<15} {balanced_acc:.4f}    {balanced_correct:<10} {balanced_total:<10}")
