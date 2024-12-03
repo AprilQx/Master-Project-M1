@@ -6,8 +6,7 @@ This repository contains code for a project that performs addition on MNIST digi
 
 - `data/`: Contains the dataset and data loading scripts.
 - `models/`: Contains the neural network models.
-- `notebooks/`: Jupyter notebooks for experimentation and visualization.
-- `scripts/`: Scripts for training and evaluating models.
+- `training/`: Contains scripts and configurations for training the models.
 - `utils/`: Utility functions and helper scripts.
 
 ## Files in `utils` Directory
