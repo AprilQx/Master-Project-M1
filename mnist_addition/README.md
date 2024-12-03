@@ -36,4 +36,5 @@ This repository contains code for a project that performs addition on MNIST digi
 
 ### Note
 
-I have cleared the results in experinments using `delete_results.py`. If we run again, we might get nothing.
+1. I have cleared the results in experinments using `delete_results.py`. If we run again, we might get nothing.
+2. Some results that I have show in the report is obtained by running the scripts, and the results are not stored properly.
