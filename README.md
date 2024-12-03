@@ -40,20 +40,20 @@ This repository contains the implementation of a machine learning pipeline for a
 ### Running with the main script
 
 To run the main script of training the model, execute:
-    ```bash
+    ```
     python main.py
     ```
 
 ## Hyperparameter Tuning
 
 To perform hyperparameter tuning, execute (may take 12hs):
-    ```bash
+    ```
     python main_tuning.py
     ```
 
 ### Visualizing the Dataset
 To visualize the dataset, open the Jupyter notebook:
-    ```bash
+    ```
     jupyter notebook mnist_addition/visualize_dataset.ipynb
     ```
 
