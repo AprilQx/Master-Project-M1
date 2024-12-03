@@ -32,6 +32,6 @@ def delete_results_files(tuning_dir: str) -> None:
     print(f"\nTotal files deleted: {deleted_count}")
 
 if __name__ == "__main__":
-    # Example usage
-    tuning_dir = "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/xx823/experiments/tuning_20241127_201445"
-    delete_results_files(tuning_dir)
+    project_root = Path(__file__).resolve().parent.parent
+    exp_path = project_root.parent/'experiments'/'tuning_20241127_201445'
+    delete_results_files(exp_path)

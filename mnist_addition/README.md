@@ -33,3 +33,7 @@ This repository contains code for a project that performs addition on MNIST digi
 ### Installation
 
  Clone the repository:
+
+### Note
+
+I have cleared the results in experinments using `delete_results.py`. If we run again, we might get nothing.
