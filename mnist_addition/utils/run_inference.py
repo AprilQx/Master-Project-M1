@@ -20,7 +20,8 @@ from data.dataset import get_dataloaders
 from data.dataset import MNISTAdditionDataset
 from models.Mnist_Addition_nn import MNISTAdditionNN 
 
-
+RANDOM_SEED = 42
+np.random.seed(RANDOM_SEED)
 
 def initialize_model(config: Dict) -> MNISTAdditionNN:
     """Initialize model with configuration"""

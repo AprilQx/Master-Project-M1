@@ -10,6 +10,9 @@ import torch
 from typing import Dict, Tuple, Optional
 import sys, os
 
+RANDOM_SEED = 42
+np.random.seed(RANDOM_SEED)
+
 def load_mnist_data(data_path: str) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     """
     Load the MNIST addition dataset from the saved numpy arrays

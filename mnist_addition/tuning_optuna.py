@@ -26,7 +26,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 def setup_experiment_dir() -> Path:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    exp_dir = project_root.parent / "experiments" / f"optuna_{timestamp}"
+    exp_dir = project_root / "experiments" / f"optuna_{timestamp}"
     exp_dir.mkdir(parents=True, exist_ok=True)
     return exp_dir
 
@@ -94,7 +94,7 @@ def save_experiment_results(results_dir: Path, study, model, config, results):
     except Exception as e:
         logging.error(f"Failed to save visualization plots: {e}")
 
-def run_optimization(n_trials=100):
+def run_optimization(n_trials=50):
     exp_dir = setup_experiment_dir()
     logging.info(f"Experiment directory: {exp_dir}")
     print("\n=== Starting Optimization ===")

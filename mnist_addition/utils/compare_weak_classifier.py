@@ -8,6 +8,9 @@ import seaborn as sns
 from tqdm import tqdm
 import sys,os
 
+RANDOM_SEED = 42
+np.random.seed(RANDOM_SEED)
+
 def train_combined_classifier(X_train: np.ndarray, y_train: np.ndarray, 
                             X_test: np.ndarray, y_test: np.ndarray,
                             n_samples: int) -> Dict:
@@ -137,7 +140,7 @@ def compare_models(data_path: Path, sample_sizes: list = [50, 100, 500, 1000]):
             'right_probabilities': sequential_results['right_probabilities']
         })
     
-    save_path = data_path.parent / 'weak_classifier_results'
+    save_path = data_path.parent.parent.parent/'experiments' / 'weak_classifier_results'
     save_path.mkdir(exist_ok=True)
     plot_results(results, save_path)
     

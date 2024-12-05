@@ -15,6 +15,10 @@ from data.dataset import get_dataloaders
 from data.dataset import MNISTAdditionDataset
 from models.Mnist_Addition_nn import MNISTAdditionNN 
 
+
+RANDOM_SEED = 42
+np.random.seed(RANDOM_SEED)
+
 def load_best_model_and_data(exp_path):
     """Load the best model and prepare data loader"""
     
