@@ -210,7 +210,7 @@ def get_dataloaders(
             transform=transform,
             download=True,
             seed=42,
-            balanced=True
+            balanced=False
         )
         print("Training dataset created successfully")
         
@@ -222,7 +222,7 @@ def get_dataloaders(
             transform=transform,
             download=True,
             seed=42,
-            balanced=True
+            balanced=False
         )
         print("Test dataset created successfully")
         

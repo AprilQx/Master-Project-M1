@@ -45,9 +45,6 @@ def extract_experiment_results(experiment_path: Path) -> Optional[Dict]:
         with open(best_model_path, 'r') as f:
             best_results = json.load(f)
         
-        with open(model_info_path, 'r') as f:
-            model_info = json.load(f)
-        
         # Count actual epochs run
         epochs_run = count_epochs(experiment_path)
             
@@ -86,7 +83,7 @@ def compile_all_results(tuning_dir: str) -> None:
     
     # Get all experiment directories
     exp_dirs = [d for d in tuning_path.iterdir() 
-                if d.is_dir() and d.name.startswith('exp_')]
+                if d.is_dir() and d.name.startswith('trial_')]
     
     # Extract results from each experiment
     all_results = []
@@ -142,5 +139,5 @@ def compile_all_results(tuning_dir: str) -> None:
 if __name__ == "__main__":
     # Example usage
     project_root = Path(__file__).resolve().parent.parent
-    exp_path = project_root.parent/'experiments'/'tuning_20241127_201445'
+    exp_path = project_root.parent.parent/'experiments'/ 'optuna_20241204_164643'
     compile_all_results(exp_path)

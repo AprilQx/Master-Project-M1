@@ -21,47 +21,53 @@ from mnist_addition.data.dataset import get_dataloaders
 from mnist_addition.training.train import ModelTrainer
 
 CONFIG_PATH = current_dir / 'config.toml'
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def setup_experiment_dir() -> Path:
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    exp_dir = project_root.parent / "experiments" / f"optuna_{timestamp}"
+    exp_dir.mkdir(parents=True, exist_ok=True)
+    return exp_dir
+
 def save_experiment_results(results_dir: Path, study, model, config, results):
-    """Save all experiment results and artifacts"""
-    print(f"\nSaving results to {results_dir}")
-    
-    # Create experiment directory
     results_dir.mkdir(parents=True, exist_ok=True)
     
-    # Save study results
     study_results = {
         "best_params": study.best_params,
         "best_accuracy": study.best_value,
         "n_trials": len(study.trials),
-        "optimization_history": [
-            {
-                "number": t.number,
-                "value": t.value,
-                "params": t.params,
-                "state": t.state.name
-            }
-            for t in study.trials
-        ]
+        "optimization_history": [{
+            "number": t.number,
+            "value": t.value,
+            "params": t.params,
+            "state": t.state.name
+        } for t in study.trials]
     }
     
+    # Save results and configs
     with open(results_dir / "study_results.json", "w") as f:
         json.dump(study_results, f, indent=4)
-    
-    # Save best model state
     torch.save(model.state_dict(), results_dir / "best_model.pt")
-    
-    # Save model configuration
     with open(results_dir / "model_config.json", "w") as f:
         json.dump(config, f, indent=4)
-    
-    # Save full results including training metrics
-    with open(results_dir / "full_results.json", "w") as f:
+    with open(results_dir / "training_history.json", "w") as f:
         json.dump(results, f, indent=4)
     
-    # Copy the original config file
-    shutil.copy2(CONFIG_PATH, results_dir / "original_config.toml")
-    
-    # Save optimization plots
+    # Calculate and save statistics
+    trials_df = study.trials_dataframe()
+    stats = {
+        'mean_accuracy': trials_df['value'].mean(),
+        'std_accuracy': trials_df['value'].std(),
+        'max_accuracy': trials_df['value'].max(),
+        'min_accuracy': trials_df['value'].min(),
+        'total_trials': len(study.trials),
+        'completed_trials': len(study.get_trials(states=[optuna.trial.TrialState.COMPLETE]))
+    }
+    with open(results_dir / "statistics.json", "w") as f:
+        json.dump(stats, f, indent=4)
+
+    # Save visualization plots
     try:
         from optuna.visualization import (
             plot_optimization_history,
@@ -69,6 +75,8 @@ def save_experiment_results(results_dir: Path, study, model, config, results):
             plot_parallel_coordinate,
             plot_slice
         )
+        
+        logging.info("Generating visualization plots...")
         figures = {
             "optimization_history": plot_optimization_history(study),
             "param_importances": plot_param_importances(study),
@@ -76,31 +84,28 @@ def save_experiment_results(results_dir: Path, study, model, config, results):
             "slice_plot": plot_slice(study)
         }
         
+        plots_dir = results_dir / "plots"
+        plots_dir.mkdir(exist_ok=True)
+        
         for name, fig in figures.items():
-            fig.write_html(str(results_dir / f"{name}.html"))
+            fig.write_html(str(plots_dir / f"{name}.html"))
+        logging.info(f"Plots saved to {plots_dir}")
                 
     except Exception as e:
-        print(f"Failed to save visualization plots: {e}")
-    
-    
-    print("Successfully saved all experiment results")
+        logging.error(f"Failed to save visualization plots: {e}")
 
 def run_optimization(n_trials=100):
+    exp_dir = setup_experiment_dir()
+    logging.info(f"Experiment directory: {exp_dir}")
     print("\n=== Starting Optimization ===")
     
     # Create experiment directory
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    results_dir = project_root / "experiments" / timestamp
+    base_config = load_config(CONFIG_PATH)
     
-    try:
-        print("Loading base configuration...")
-        base_config = load_config(CONFIG_PATH)
-        print("Config loaded successfully")
-    except Exception as e:
-        print(f"Failed to load config: {e}")
-        return
 
     def objective(trial):
+        trial_dir = exp_dir / f"trial_{trial.number}"
+        trial_dir.mkdir(exist_ok=True)
         # Suggest parameters
         params = {
             'hidden_size': trial.suggest_int('hidden_size', 32, 512, step=32),
@@ -109,15 +114,17 @@ def run_optimization(n_trials=100):
             'learning_rate': trial.suggest_float('learning_rate', 1e-5, 1e-2, log=True),
             'batch_size': trial.suggest_categorical('batch_size', [32, 64, 128, 256])
         }
-        
+        logging.info(f"\nTrial {trial.number}/{n_trials}")
+        logging.info(f"Parameters: {json.dumps(params, indent=2)}")
         try:
             # Update configuration
             trial_config = base_config.copy()
-            trial_config['model'] = trial_config.get('model', {})
             trial_config['model'].update(params)
             trial_config['data']['batch_size'] = params['batch_size']
+            trial_config['train']['save_dir'] = str(trial_dir)
             
-            print(f"\nTrial {trial.number}: Testing parameters: {params}")
+            with open(trial_dir / 'config.json', 'w') as f:
+                json.dump(trial_config, f, indent=4)
             
             # Create dataloaders with current batch size
             dataloaders = get_dataloaders(trial_config, root=str(current_dir / "data"))
@@ -128,23 +135,28 @@ def run_optimization(n_trials=100):
                 model=model,
                 dataloaders=dataloaders,
                 config=trial_config,
-                patience=3
+                patience=3  # Removed save_dir argument
             )
             
             trained_model, metrics_history = trainer.train()
             accuracy = max(metrics_history['val_accuracy'])
+
+             # Save trial results
+            result = {
+                'trial_number': trial.number,
+                'parameters': params,
+                'best_val_accuracy': accuracy,
+                'history': metrics_history
+            }
+            with open(trial_dir / 'results.json', 'w') as f:
+                json.dump(result, f, indent=4)
             
             print(f"Trial {trial.number} completed with accuracy: {accuracy:.4f}")
-            
-            # Report intermediate values for pruning
-            trial.report(accuracy, step=1)
-            if trial.should_prune():
-                raise optuna.exceptions.TrialPruned()
-                
+            logging.info(f"Trial {trial.number} completed: accuracy = {accuracy:.4f}")
             return accuracy
             
         except Exception as e:
-            print(f"Trial {trial.number} failed with error: {e}")
+            logging.error(f"Trial {trial.number} failed: {str(e)}")
             raise optuna.exceptions.TrialPruned()
 
     # Create study
@@ -154,44 +166,35 @@ def run_optimization(n_trials=100):
         pruner=optuna.pruners.MedianPruner()
     )
     
-    print(f"\nStarting optimization with {n_trials} trials...")
     study.optimize(objective, n_trials=n_trials)
-    print("\nOptimization completed!")
-
-    # Train final model with best parameters
+    
+    # Train final model with best params
+    logging.info("\nTraining final model with best parameters...")
     final_config = base_config.copy()
     final_config['model'].update(study.best_params)
     final_config['data']['batch_size'] = study.best_params['batch_size']
     
-    print("\nTraining final model with best parameters...")
     dataloaders = get_dataloaders(final_config, root=str(current_dir / "data"))
     best_model = create_model(final_config)
-    best_trainer = ModelTrainer(
-        model=best_model,
-        dataloaders=dataloaders,
-        config=final_config
-    )
-    
+    best_trainer = ModelTrainer(best_model, dataloaders, final_config)
     trained_model, training_results = best_trainer.train()
     
-    # Save all results
-    save_experiment_results(results_dir, study, trained_model, final_config, training_results)
+    save_experiment_results(exp_dir, study, trained_model, final_config, training_results)
+    logging.info(f"Results saved to: {exp_dir}")
     
-    return study, trained_model, results_dir
+    return study, trained_model, exp_dir
+
 
 if __name__ == "__main__":
     try:
         study, best_model, results_dir = run_optimization(n_trials=50)
-        print(f"\nOptimization completed successfully!")
-        print(f"Best parameters: {study.best_params}")
-        print(f"Best accuracy: {study.best_value:.4f}")
-        print(f"\nResults saved to: {results_dir}")
+        logging.info(f"\nBest accuracy: {study.best_value:.4f}")
+        logging.info(f"Best parameters: {json.dumps(study.best_params, indent=2)}")
         
-        # Print parameter importance
-        print("\nParameter importance:")
         importance = optuna.importance.get_param_importances(study)
+        logging.info("\nParameter importance:")
         for param, score in importance.items():
-            print(f"{param}: {score:.3f}")
+            logging.info(f"{param}: {score:.3f}")
             
     except Exception as e:
-        print(f"Optimization failed with error: {e}")
+        logging.error(f"Optimization failed: {str(e)}")

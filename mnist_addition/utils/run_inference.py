@@ -156,7 +156,7 @@ def visualize_results(results: List[Dict], save_dir: Optional[Path] = None):
     fig, axes = plt.subplots(2, 2, figsize=(15, 15))
     axes = axes.ravel()
     
-    params = ['hidden_size', 'num_layers', 'dropout_rate', 'learning_rate']
+    params = ['hidden_size', 'num_layers', 'dropout_rate', 'learning_rate','batch_size']
     for i, param in enumerate(params):
         sns.scatterplot(data=df, x=param, y='accuracy', ax=axes[i])
         axes[i].set_title(f'Accuracy vs {param}')
@@ -190,7 +190,7 @@ def visualize_results(results: List[Dict], save_dir: Optional[Path] = None):
 def run_all_experiments(base_dir: Path, test_dataset, device: str) -> List[Dict]:
     """Run inference on all experiment models"""
     results = []
-    exp_dirs = sorted([d for d in base_dir.iterdir() if d.is_dir() and d.name.startswith('exp_')],
+    exp_dirs = sorted([d for d in base_dir.iterdir() if d.is_dir() and d.name.startswith('trial_')],
                      key=lambda x: int(x.name.split('_')[1]))
     
     for exp_dir in tqdm(exp_dirs, desc="Running inference"):
@@ -202,8 +202,9 @@ def run_all_experiments(base_dir: Path, test_dataset, device: str) -> List[Dict]
 
 def main():
     # Setup paths
-    base_dir = Path("experiments/tuning_20241127_201445")
-    save_dir = base_dir / "inference_results"
+    project_root = Path(__file__).resolve().parent.parent
+    exp_path = project_root.parent.parent/'experiments'/ 'optuna_20241204_164643'
+    save_dir = exp_path / "inference_results"
     save_dir.mkdir(exist_ok=True)
     
     # Create transform
@@ -218,7 +219,7 @@ def main():
         transform=transform,
         download=True,
         seed=42,
-        balanced=True
+        balanced=False
     )
     
     # Set device
@@ -227,7 +228,7 @@ def main():
     
     # Run inference on all models
     print("\nEvaluating models on test set...")
-    results = run_all_experiments(base_dir, test_dataset, device)
+    results = run_all_experiments(exp_path, test_dataset, device)
     
     if not results:
         print("No successful results were obtained!")
