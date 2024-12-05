@@ -1,0 +1,21 @@
+{
+    "data": {
+        "batch_size": 32,
+        "train_split": 0.7,
+        "val_split": 0.15,
+        "random_seed": 42,
+        "num_workers": 4
+    },
+    "model": {
+        "hidden_size": 352,
+        "num_layers": 5,
+        "dropout_rate": 0.28336356301241494,
+        "learning_rate": 0.00020173184427655383,
+        "batch_size": 32
+    },
+    "train": {
+        "epochs": 50,
+        "device": "mps",
+        "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/experiments/optuna_20241204_164643/trial_28"
+    }
+}

@@ -115,7 +115,7 @@ class TuningVisualizer:
 
 def main():
     PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    sys.path.append(str(PROJECT_ROOT.parent))
+    sys.path.append(str(PROJECT_ROOT))
     print(f"Current working directory: {os.getcwd()}")
     results_path = "experiments/optuna_20241204_164643/all_results.json"
     save_dir = Path("experiments/optuna_20241204_164643/visualizations")

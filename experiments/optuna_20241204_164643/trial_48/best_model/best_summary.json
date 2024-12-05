@@ -1,0 +1,29 @@
+{
+    "epoch": 18,
+    "metrics": {
+        "loss": 0.5336766188343366,
+        "accuracy": 0.8545138835906982,
+        "recall": 0.8545138835906982
+    },
+    "config": {
+        "data": {
+            "batch_size": 32,
+            "train_split": 0.7,
+            "val_split": 0.15,
+            "random_seed": 42,
+            "num_workers": 4
+        },
+        "model": {
+            "hidden_size": 384,
+            "num_layers": 4,
+            "dropout_rate": 0.3795531004895456,
+            "learning_rate": 0.0006076079613809699,
+            "batch_size": 32
+        },
+        "train": {
+            "epochs": 50,
+            "device": "mps",
+            "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/experiments/optuna_20241204_164643/trial_48"
+        }
+    }
+}

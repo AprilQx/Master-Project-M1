@@ -140,7 +140,7 @@ class WeightVisualizer:
 def main():
     # Path to your best model's state dict
     PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    sys.path.append(str(PROJECT_ROOT.parent))
+    sys.path.append(str(PROJECT_ROOT))
     print(f"Current working directory: {os.getcwd()}")
     model_path = "experiments/optuna_20241204_164643/trial_11/best_model/model.pt"
     save_dir = Path("experiments/optuna_20241204_164643/weight_visualizations")

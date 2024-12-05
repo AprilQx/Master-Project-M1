@@ -1,0 +1,92 @@
+[
+  {
+    "experiment_id": 11,
+    "accuracy": 0.871578947368421,
+    "hidden_size": 384,
+    "batch_size": 256,
+    "num_layers": 4,
+    "dropout_rate": 0.256981156841053,
+    "learning_rate": 0.0005148059937588893
+  },
+  {
+    "experiment_id": 49,
+    "accuracy": 0.87,
+    "hidden_size": 256,
+    "batch_size": 128,
+    "num_layers": 3,
+    "dropout_rate": 0.2310812812350272,
+    "learning_rate": 0.0011616454363427254
+  },
+  {
+    "experiment_id": 48,
+    "accuracy": 0.8660526315789474,
+    "hidden_size": 384,
+    "batch_size": 32,
+    "num_layers": 4,
+    "dropout_rate": 0.3795531004895456,
+    "learning_rate": 0.0006076079613809699
+  },
+  {
+    "experiment_id": 16,
+    "accuracy": 0.8607894736842105,
+    "hidden_size": 320,
+    "batch_size": 256,
+    "num_layers": 4,
+    "dropout_rate": 0.4368382702581321,
+    "learning_rate": 0.000977730776366136
+  },
+  {
+    "experiment_id": 13,
+    "accuracy": 0.8563157894736843,
+    "hidden_size": 192,
+    "batch_size": 32,
+    "num_layers": 5,
+    "dropout_rate": 0.213222695960505,
+    "learning_rate": 0.0007284806714367232
+  },
+  {
+    "experiment_id": 28,
+    "accuracy": 0.8513157894736842,
+    "hidden_size": 352,
+    "batch_size": 32,
+    "num_layers": 5,
+    "dropout_rate": 0.28336356301241494,
+    "learning_rate": 0.00020173184427655383
+  },
+  {
+    "experiment_id": 38,
+    "accuracy": 0.8513157894736842,
+    "hidden_size": 224,
+    "batch_size": 32,
+    "num_layers": 3,
+    "dropout_rate": 0.21300551901158726,
+    "learning_rate": 0.00043261266522512284
+  },
+  {
+    "experiment_id": 26,
+    "accuracy": 0.8505263157894737,
+    "hidden_size": 288,
+    "batch_size": 128,
+    "num_layers": 2,
+    "dropout_rate": 0.41177128092467147,
+    "learning_rate": 0.0011366717355035924
+  },
+  {
+    "experiment_id": 27,
+    "accuracy": 0.8492105263157895,
+    "hidden_size": 192,
+    "batch_size": 64,
+    "num_layers": 4,
+    "dropout_rate": 0.3359757223154612,
+    "learning_rate": 0.0004881382497752265
+  },
+  {
+    "experiment_id": 3,
+    "accuracy": 0.8476315789473684,
+    "hidden_size": 256,
+    "batch_size": 128,
+    "num_layers": 4,
+    "dropout_rate": 0.1798695128633439,
+    "learning_rate": 0.0003489018845491386
+  }
+]

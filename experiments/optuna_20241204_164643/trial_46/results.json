@@ -1,0 +1,10 @@
+{
+    "trial_number": 46,
+    "parameters": {
+        "hidden_size": 192,
+        "num_layers": 4,
+        "dropout_rate": 0.359352166823803,
+        "learning_rate": 0.0028414013038913217,
+        "batch_size": 32
+    },
+    "best_val_accuracy": 

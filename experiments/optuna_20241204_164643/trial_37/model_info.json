@@ -1,0 +1,26 @@
+{
+    "config": {
+        "data": {
+            "batch_size": 32,
+            "train_split": 0.7,
+            "val_split": 0.15,
+            "random_seed": 42,
+            "num_workers": 4
+        },
+        "model": {
+            "hidden_size": 32,
+            "num_layers": 1,
+            "dropout_rate": 0.13661322329114653,
+            "learning_rate": 0.0007743798209030235,
+            "batch_size": 32
+        },
+        "train": {
+            "epochs": 50,
+            "device": "mps",
+            "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/experiments/optuna_20241204_164643/trial_37"
+        }
+    },
+    "model_architecture": "MNISTAdditionNN(\n  (network): Sequential(\n    (0): Flatten(start_dim=1, end_dim=-1)\n    (1): Linear(in_features=1568, out_features=32, bias=True)\n    (2): ReLU()\n    (3): Dropout(p=0.13661322329114653, inplace=False)\n    (4): Linear(in_features=32, out_features=19, bias=True)\n  )\n  (embedding): Dropout(p=0.13661322329114653, inplace=False)\n)",
+    "model_parameters": 50835,
+    "trainable_parameters": 50835
+}

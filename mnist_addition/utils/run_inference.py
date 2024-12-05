@@ -236,7 +236,7 @@ def run_all_experiments(base_dir: Path, test_dataset, device: str) -> List[Dict]
 def main():
     # Setup paths
     project_root = Path(__file__).resolve().parent.parent
-    exp_path = project_root.parent.parent/'experiments'/ 'optuna_20241204_164643'
+    exp_path = project_root.parent/'experiments'/ 'optuna_20241204_164643'
     save_dir = exp_path / "inference_results"
     save_dir.mkdir(exist_ok=True)
     

@@ -139,5 +139,5 @@ def compile_all_results(tuning_dir: str) -> None:
 if __name__ == "__main__":
     # Example usage
     project_root = Path(__file__).resolve().parent.parent
-    exp_path = project_root.parent.parent/'experiments'/ 'optuna_20241204_164643'
+    exp_path = project_root.parent/'experiments'/ 'optuna_20241204_164643'
     compile_all_results(exp_path)

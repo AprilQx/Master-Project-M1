@@ -1,0 +1,26 @@
+{
+    "config": {
+        "data": {
+            "batch_size": 128,
+            "train_split": 0.7,
+            "val_split": 0.15,
+            "random_seed": 42,
+            "num_workers": 4
+        },
+        "model": {
+            "hidden_size": 96,
+            "num_layers": 4,
+            "dropout_rate": 0.12217550014568118,
+            "learning_rate": 0.0002692962878993179,
+            "batch_size": 128
+        },
+        "train": {
+            "epochs": 50,
+            "device": "mps",
+            "save_dir": "/Users/apple/Documents/GitLab_Projects/cambridge_coursework:M1/experiments/optuna_20241204_164643/trial_32"
+        }
+    },
+    "model_architecture": "MNISTAdditionNN(\n  (network): Sequential(\n    (0): Flatten(start_dim=1, end_dim=-1)\n    (1): Linear(in_features=1568, out_features=96, bias=True)\n    (2): ReLU()\n    (3): Dropout(p=0.12217550014568118, inplace=False)\n    (4): Linear(in_features=96, out_features=96, bias=True)\n    (5): ReLU()\n    (6): Dropout(p=0.12217550014568118, inplace=False)\n    (7): Linear(in_features=96, out_features=96, bias=True)\n    (8): ReLU()\n    (9): Dropout(p=0.12217550014568118, inplace=False)\n    (10): Linear(in_features=96, out_features=96, bias=True)\n    (11): ReLU()\n    (12): Dropout(p=0.12217550014568118, inplace=False)\n    (13): Linear(in_features=96, out_features=19, bias=True)\n  )\n  (embedding): Dropout(p=0.12217550014568118, inplace=False)\n)",
+    "model_parameters": 180403,
+    "trainable_parameters": 180403
+}
