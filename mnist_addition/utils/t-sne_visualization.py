@@ -18,13 +18,13 @@ from models.Mnist_Addition_nn import MNISTAdditionNN
 def load_best_model_and_data(exp_path):
     """Load the best model and prepare data loader"""
     
-    config_path = exp_path / 'exp_102' / 'best_model' / 'best_summary.json'
+    config_path = exp_path / 'trial_11' / 'best_model' / 'best_summary.json'
     with open(config_path, 'r') as f:
         exp_config = json.load(f)
     dataloaders = get_dataloaders(exp_config['config'], root="mnist_addition/data")
-    model_path = exp_path / 'exp_102' / 'best_model' / 'model.pt'
+    model_path = exp_path / 'trial_11' / 'best_model' / 'model.pt'
 
-    model_path = exp_path / 'exp_102' / 'best_model' / 'model.pt'
+    model_path = exp_path / 'trial_11' / 'best_model' / 'model.pt'
     state_dict = torch.load(model_path)
     
     # Extract only the model architecture parameters (excluding learning_rate)
@@ -204,7 +204,7 @@ def main():
     print(f"Using device: {device}")
 
     project_root = Path(__file__).resolve().parent.parent
-    exp_path = project_root.parent/'experiments'/'tuning_20241127_201445'
+    exp_path = project_root.parent.parent/'experiments'/'optuna_20241204_164643'
     save_dir = exp_path / "tsne_visualization"
     save_dir.mkdir(exist_ok=True)
 

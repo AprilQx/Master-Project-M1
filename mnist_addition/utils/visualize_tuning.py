@@ -114,11 +114,11 @@ class TuningVisualizer:
             print(f"- {param}: [{self.df[param].min()}, {self.df[param].max()}]")
 
 def main():
-    PROJECT_ROOT = Path(__file__).resolve().parent
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
     sys.path.append(str(PROJECT_ROOT.parent))
     print(f"Current working directory: {os.getcwd()}")
-    results_path = "experiments/tuning_20241127_201445/all_results.json"
-    save_dir = Path("experiments/tuning_20241127_201445/visualizations")
+    results_path = "experiments/optuna_20241204_164643/all_results.json"
+    save_dir = Path("experiments/optuna_20241204_164643/visualizations")
     
     # Create save directory if it doesn't exist
     save_dir.mkdir(exist_ok=True)

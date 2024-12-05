@@ -78,7 +78,7 @@ def train_and_evaluate_models(train_data: np.ndarray, train_labels: np.ndarray,
     # Compare with neural network results (if available)
     try:
         #nn_results = torch.load(save_dir.parent / 'best_model' / 'best_summary.json')
-        nn_accuracy = 0.8737 #test result
+        nn_accuracy = 0.8716#test result
         
         # Plot accuracy comparison
         models = ['Neural Network', 'Random Forest', 'SVM']

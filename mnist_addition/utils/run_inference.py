@@ -137,6 +137,7 @@ def visualize_results(results: List[Dict], save_dir: Optional[Path] = None):
         'experiment_id': r['experiment_id'],
         'accuracy': r['accuracy'],
         'hidden_size': r['model_config']['model']['hidden_size'],
+        'batch_size': r['model_config']['model']['batch_size'],
         'num_layers': r['model_config']['model']['num_layers'],
         'dropout_rate': r['model_config']['model']['dropout_rate'],
         'learning_rate': r['model_config']['model']['learning_rate']
@@ -153,18 +154,49 @@ def visualize_results(results: List[Dict], save_dir: Optional[Path] = None):
     plt.close()
     
     # Plot accuracy vs hyperparameters
-    fig, axes = plt.subplots(2, 2, figsize=(15, 15))
+    fig, axes = plt.subplots(3, 2, figsize=(15, 15))
     axes = axes.ravel()
     
     params = ['hidden_size', 'num_layers', 'dropout_rate', 'learning_rate','batch_size']
     for i, param in enumerate(params):
         sns.scatterplot(data=df, x=param, y='accuracy', ax=axes[i])
         axes[i].set_title(f'Accuracy vs {param}')
-    
+    axes[-1].remove()
     plt.tight_layout()
     if save_dir:
         plt.savefig(save_dir / 'accuracy_vs_params.png')
     plt.close()
+
+    # Create correlation plot
+    plt.figure(figsize=(10, 8))
+    # Select columns for correlation analysis
+    cols_for_corr = ['accuracy', 'hidden_size', 'num_layers', 'dropout_rate', 
+                     'learning_rate', 'batch_size']
+    
+    # Calculate correlation matrix
+    corr_matrix = df[cols_for_corr].corr()
+    
+    # Create heatmap
+    sns.heatmap(corr_matrix, 
+                annot=True,  # Show correlation values
+                cmap='coolwarm',  # Blue-red diverging colormap
+                vmin=-1, vmax=1,  # Set limits for correlation values
+                center=0,  # Center the colormap at 0
+                fmt='.2f')  # Format correlation values to 2 decimal places
+    
+    plt.title('Correlation between Accuracy and Hyperparameters')
+    plt.tight_layout()
+    
+    if save_dir:
+        plt.savefig(save_dir / 'correlation_matrix.png')
+    plt.close()
+
+    # Print correlation with accuracy specifically
+    print("\nCorrelations with Accuracy:")
+    correlations = corr_matrix['accuracy'].sort_values(ascending=False)
+    for param, corr in correlations.items():
+        if param != 'accuracy':
+            print(f"{param}: {corr:.3f}")
     
     # Save detailed results
     if save_dir:
