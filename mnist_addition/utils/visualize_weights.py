@@ -141,7 +141,7 @@ def main():
     # Path to your best model's state dict
     project_root = Path(__file__).resolve().parent.parent.parent
   
-    results_path = project_root/"experiments/optuna_20241204_164643/trial_11/best_model/model.pt"
+    results_path = project_root/"experiments"/"optuna_20241204_164643"/"trial_11"/"best_model/model.pt"
     save_dir = Path(project_root/"experiments"/"weight visualizations")
     
     
