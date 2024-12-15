@@ -141,7 +141,7 @@ def compare_models(data_path: Path, sample_sizes: list = [50, 100, 500, 1000]):
         })
     
     save_path = data_path.parent.parent.parent/'experiments' / 'weak_classifier_results'
-    save_path.mkdir(exist_ok=True)
+    save_path.mkdir(exist_ok=True,parents=True)
     plot_results(results, save_path)
     
     print("\nResults Summary:")

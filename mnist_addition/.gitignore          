@@ -3,7 +3,6 @@
 */__pycache__/
 __pycache__/
 *.py[cod]
-*.npy
 __pycache__/
 *.pyc
 
@@ -75,7 +74,6 @@ ehthumbs.db
 Desktop.ini
 
 # Distribution
-*.tar.gz
 *.whl
 
 
@@ -85,3 +83,6 @@ Desktop.ini
 
 # MNIST dataset directory
 
+!mnist_addition/data/MNIST/raw/*
+!mnist_addition/data/processed/**/*.npy
+!mnist_addition/data/processed_classification/**/*.npy
