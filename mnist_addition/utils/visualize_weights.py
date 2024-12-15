@@ -139,16 +139,16 @@ class WeightVisualizer:
 
 def main():
     # Path to your best model's state dict
-    PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    sys.path.append(str(PROJECT_ROOT))
-    print(f"Current working directory: {os.getcwd()}")
-    model_path = "experiments/optuna_20241204_164643/trial_11/best_model/model.pt"
-    save_dir = Path("experiments/optuna_20241204_164643/weight_visualizations")
+    project_root = Path(__file__).resolve().parent.parent.parent
+  
+    results_path = project_root/"experiments/optuna_20241204_164643/trial_11/best_model/model.pt"
+    save_dir = Path(project_root/"experiments"/"weight visualizations")
+    
     
     # Create save directory if it doesn't exist
     save_dir.mkdir(exist_ok=True,parents=True)
     
-    viz = WeightVisualizer(model_path)
+    viz = WeightVisualizer(results_path)
     
     # Generate visualizations
     viz.plot_weight_distributions(save_path=save_dir / "weight_distributions.png")

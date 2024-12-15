@@ -117,7 +117,7 @@ def main():
     project_root = Path(__file__).resolve().parent.parent.parent
   
     results_path = project_root/"experiments/optuna_20241204_164643/all_results.json"
-    save_dir = Path(project_root/"experiments"/"weight visualizations")
+    save_dir = Path(project_root/"experiments"/"finetuning visualizations")
     
     # Create save directory if it doesn't exist
     save_dir.mkdir(exist_ok=True,parents=True)
