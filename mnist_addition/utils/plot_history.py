@@ -55,5 +55,6 @@ def plot_training_history(json_path: str):
 
 if __name__ == "__main__":
     # Use the metrics history JSON file
-    json_path = "experiments/test2/final_metrics_history.json"
+    project_root = Path(__file__).resolve().parent.parent.parent
+    json_path=project_root/"experiments"/"test2"/"final_metrics_history.json"
     plot_training_history(json_path)
