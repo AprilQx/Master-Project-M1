@@ -38,6 +38,7 @@ This repository contains code for a project that performs addition on MNIST digi
 
 1. I have cleared the results in experinments using `delete_results.py`. If we run again, we might get nothing.
 2. Some results that I have show in the report is obtained by running the scripts, and the results are not stored properly.
+3. 
 
 ### Results Reproduction
 
@@ -55,5 +56,20 @@ This repository contains code for a project that performs addition on MNIST digi
     ```
 3. **visualize weights of best model**:
     ```sh
-    python - visualize_weights.py
+    python  visualize_weights.py
     ```
+4. **visualize finetuning results**:
+    ```sh
+    python  visualize_tuning.py
+    ```
+5. **extract best performing finetuned results**:
+    ```sh
+    python  extract_best_results.py
+    ```
+6. **extract best performing epoch in one training**:
+    ```sh
+    python  plot_history.py
+    ```
+
+
+
