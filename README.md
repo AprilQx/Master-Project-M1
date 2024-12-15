@@ -34,7 +34,7 @@ This repository contains the implementation of a machine learning pipeline for a
 1. Clone this repository
 2. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   python -m pip install -r requirements.txt
 
 ## Usage
 ### Running with the main script
