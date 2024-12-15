@@ -99,16 +99,19 @@ def plot_comparison(balanced_metrics, unbalanced_metrics, save_path):
 
 def main():
     # Set paths
-    experiments_dir = Path("experiments")
-    balanced_path = experiments_dir / "test1"
-    unbalanced_path = experiments_dir / "test2"
+    project_root = Path(__file__).resolve().parent.parent.parent
+  
+    balanced_path = project_root/"experiments"/"test1"
+    unbalanced_path = project_root/"experiments" / "test2"
+    save_dir = Path(project_root/"experiments"/"weight visualizations")
+    
     
     # Load metrics
     balanced_metrics = load_metrics(balanced_path)
     unbalanced_metrics = load_metrics(unbalanced_path)
     
     plot_comparison(balanced_metrics, unbalanced_metrics, 
-                   experiments_dir / "training_comparison.png")
+                   project_root/"experiments" / "training_comparison.png")
     
     # Load config
     config = load_config("mnist_addition/config.toml")
