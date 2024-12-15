@@ -65,7 +65,7 @@ def evaluate_model(model, test_loader, device):
 
 def plot_comparison(balanced_metrics, unbalanced_metrics, save_path):
     """Plot training history comparison"""
-    plt.style.use('seaborn')
+    #plt.style.use('seaborn')
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
     
     # Plot training and validation loss
