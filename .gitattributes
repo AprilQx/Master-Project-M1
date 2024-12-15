@@ -2,3 +2,5 @@ experiments/optuna_20241204_164643/trial_11/best_model/model.pt filter=lfs diff=
 *.gz filter=lfs diff=lfs merge=lfs -text
 *-ubyte filter=lfs diff=lfs merge=lfs -text
 *.npy filter=lfs diff=lfs merge=lfs -text
+mnist_addition/data/MNIST/raw/*.gz filter=lfs diff=lfs merge=lfs -text
+mnist_addition/data/MNIST/raw/*-ubyte filter=lfs diff=lfs merge=lfs -text
