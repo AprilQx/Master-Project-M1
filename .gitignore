@@ -6,10 +6,11 @@ mnist_addition/mnist_addition/data/processed/
 
 # Ignore model checkpoints and related files
 *.pt
-experiments/**/full_checkpoint.pt
-experiments/**/model.pt
-experiments/*/epoch_*/
-experiments/*/best_model/
+!experiments/
+!experiments/optuna_20241204_164643/
+!experiments/optuna_20241204_164643/trial_11/
+!experiments/optuna_20241204_164643/trial_11/best_model/
+!experiments/optuna_20241204_164643/trial_11/best_model/model.pt
 
 # Ignore all .gz files (MNIST compressed files)
 *.gz
