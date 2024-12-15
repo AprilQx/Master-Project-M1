@@ -114,7 +114,10 @@ def main():
                    project_root/"experiments" / "training_comparison.png")
     
     # Load config
-    config = load_config("mnist_addition/config.toml")
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+    CONFIG_PATH = PROJECT_ROOT / 'config.toml'
+    config = load_config(str(CONFIG_PATH))
     
     # Create transform
     transform = transforms.Compose([
