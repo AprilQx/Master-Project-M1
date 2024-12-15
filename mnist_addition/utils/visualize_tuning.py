@@ -121,7 +121,7 @@ def main():
     save_dir = Path("experiments/optuna_20241204_164643/visualizations")
     
     # Create save directory if it doesn't exist
-    save_dir.mkdir(exist_ok=True)
+    save_dir.mkdir(exist_ok=True,parents=True)
     
     viz = TuningVisualizer(results_path)
     

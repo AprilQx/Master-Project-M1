@@ -32,9 +32,28 @@ This repository contains code for a project that performs addition on MNIST digi
 
 ### Installation
 
- Clone the repository:
+ Clone the repository
 
 ### Note
 
 1. I have cleared the results in experinments using `delete_results.py`. If we run again, we might get nothing.
 2. Some results that I have show in the report is obtained by running the scripts, and the results are not stored properly.
+
+### Results Reproduction
+
+1. **Compare the weak classifiers**:
+    ```sh
+    python compare_weak_classifier.py
+    ```
+2. **Compare the SVM, RF, NN**:
+    ```sh
+    python compare_models.py
+    ```
+3. **tsne results**:
+    ```sh
+    python t-sne_visualization.py
+    ```
+3. **visualize weights of best model**:
+    ```sh
+    python - visualize_weights.py
+    ```

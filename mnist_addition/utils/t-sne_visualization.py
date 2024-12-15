@@ -210,7 +210,7 @@ def main():
     project_root = Path(__file__).resolve().parent.parent
     exp_path = project_root.parent/'experiments'/'optuna_20241204_164643'
     save_dir = exp_path / "tsne_visualization"
-    save_dir.mkdir(exist_ok=True)
+    save_dir.mkdir(exist_ok=True,parents=True)
 
     try:
         model, dataloader = load_best_model_and_data(exp_path)
