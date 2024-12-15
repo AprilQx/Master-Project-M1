@@ -23,3 +23,6 @@ tomli>=2.0.0
 # Utilities
 pathlib>=1.0.1
 typing>=3.7.4
+
+
+optuna>=2.9.0
