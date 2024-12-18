@@ -50,7 +50,7 @@ To run the main script of training the model, execute:
 
 ## Hyperparameter Tuning
 
-To perform hyperparameter tuning, execute (may take 12hs):
+To perform hyperparameter tuning, execute (may take 6hs):
     ```
     python tuning_optuna.py
     ```
