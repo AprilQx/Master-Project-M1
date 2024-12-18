@@ -90,5 +90,3 @@ To visualize the dataset, open the Jupyter notebook:
     ```sh
     python  plot_history.py
     ```
-
-

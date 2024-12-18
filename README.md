@@ -41,3 +41,14 @@ This repository contains the implementation of a machine learning pipeline for a
    python -m pip install -r requirements.txt
 
 
+## Usage of Autogeneration Tools
+In the development of this project, I declare that autogeneration tools were used in the following supportive capacity:
+
+### Development Support:
+
+1. Initial project structure suggestions
+2. Documentation string templates
+3. Debugging support for Optuna implementation
+
+All AI-generated suggestions were carefully reviewed, understood, and verified before incorporation. The core implementation work, including all key algorithms and analytical components, was completed independently by me. I maintain full understanding of all project components and can explain any implementation detail.
+

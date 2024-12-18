@@ -67,32 +67,6 @@ def save_experiment_results(results_dir: Path, study, model, config, results):
     with open(results_dir / "statistics.json", "w") as f:
         json.dump(stats, f, indent=4)
 
-    # Save visualization plots
-    try:
-        from optuna.visualization import (
-            plot_optimization_history,
-            plot_param_importances,
-            plot_parallel_coordinate,
-            plot_slice
-        )
-        
-        logging.info("Generating visualization plots...")
-        figures = {
-            "optimization_history": plot_optimization_history(study),
-            "param_importances": plot_param_importances(study),
-            "parallel_coordinate": plot_parallel_coordinate(study),
-            "slice_plot": plot_slice(study)
-        }
-        
-        plots_dir = results_dir / "plots"
-        plots_dir.mkdir(exist_ok=True)
-        
-        for name, fig in figures.items():
-            fig.write_html(str(plots_dir / f"{name}.html"))
-        logging.info(f"Plots saved to {plots_dir}")
-                
-    except Exception as e:
-        logging.error(f"Failed to save visualization plots: {e}")
 
 def run_optimization(n_trials=50):
     exp_dir = setup_experiment_dir()
