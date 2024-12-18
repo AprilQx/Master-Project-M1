@@ -40,24 +40,4 @@ This repository contains the implementation of a machine learning pipeline for a
    ```bash
    python -m pip install -r requirements.txt
 
-## Usage
-### Running with the main script
-
-To run the main script of training the model, execute:
-    ```
-    python main.py
-    ```
-
-### Hyperparameter Tuning
-
-To perform hyperparameter tuning, execute (may take 6hs):
-    ```
-    python tuning_optuna.py
-    ```
-
-### Visualizing the Dataset
-To visualize the dataset, open the Jupyter notebook:
-    ```
-    jupyter notebook mnist_addition/visualize_dataset.ipynb
-    ```
 

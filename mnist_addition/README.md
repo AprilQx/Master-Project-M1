@@ -39,6 +39,26 @@ This repository contains code for a project that performs addition on MNIST digi
 1. I have cleared the results in experinments using `delete_results.py`. If we run again, we might get nothing.
 2. Some results that I have show in the report is obtained by running the scripts, and the results are not stored properly.
 3. Note that we couldn't run `run_inference.py` as not all model.pt is uploaded to gitlab.
+## Usage
+### Running with the main script
+
+To run the main script of training the model, execute:
+    ```
+    python main.py
+    ```
+
+### Hyperparameter Tuning
+
+To perform hyperparameter tuning, execute (may take 6hs):
+    ```
+    python tuning_optuna.py
+    ```
+
+### Visualizing the Dataset
+To visualize the dataset, open the Jupyter notebook:
+    ```
+    jupyter notebook mnist_addition/visualize_dataset.ipynb
+    ```
 
 ### Results Reproduction
 
