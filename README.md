@@ -48,7 +48,7 @@ To run the main script of training the model, execute:
     python main.py
     ```
 
-## Hyperparameter Tuning
+### Hyperparameter Tuning
 
 To perform hyperparameter tuning, execute (may take 6hs):
     ```
